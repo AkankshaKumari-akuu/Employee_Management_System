@@ -14,7 +14,7 @@ public class EmployeeController {
 		Double Gross=Bp+DA+HRA;
 		
 		Double Tax=(double) 0;
-		if(Gross>15000000)
+		if(Gross>150)
 		{
 			Tax=Gross*0.3;
 		}
