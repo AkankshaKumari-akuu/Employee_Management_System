@@ -1,75 +1,53 @@
-package com.employee.doa;
+package com.employee.dao;
 
-import java.util.Date;
 import java.util.List;
-import java.util.ResourceBundle;
 
-import javax.persistence.Query;
-
+import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
-import com.employee.exceptions.EmployeeNotFoundException;
+import com.employee.exception.EmployeeNotFoundException;
 import com.employee.model.Employee;
 
-public class EmployeeDoa {
-	public void insertEmployee(Employee employee) {
-    
+public class EmployeeDAO {
 	
-		try {
-		ResourceBundle rb = ResourceBundle.getBundle("oracle");
-	    	    
-		    	Configuration cfg = new Configuration();
-		    	cfg.configure("hibernate.cfg.xml");
-	            cfg.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1521:xe");
-	            cfg.setProperty("hibernate.connection.username", rb.getString("db.username"));
-	            cfg.setProperty("hibernate.connection.password", rb.getString("db.password"));
-	            
-	            SessionFactory fact = cfg.buildSessionFactory();
-				Session session = fact.openSession();
-				Transaction t = session.beginTransaction();
-				
-				
-				session.save(employee);
-				t.commit();
-
-				System.out.println("successfully saved");
-				session.close();
-				fact.close();
-		
-		}	
-		catch(Exception exception) {
-			
-		exception.printStackTrace();
-}
+	public List<Employee> findById(int id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query selectQuery = session.createQuery("select obj from Employee obj where obj.id =:au");
+		selectQuery.setParameter("au", id);
+		List<Employee> resultset = selectQuery.list();
+		session.close();
+		if(resultset.size()==0) {
+			throw new EmployeeNotFoundException("Employee Not present");
+		}
+		return resultset;
 	}
-	public Employee findEmployee(int id) {
-		
-			ResourceBundle rb = ResourceBundle.getBundle("oracle");
-		    	    
-			    	Configuration cfg = new Configuration();
-			    	cfg.configure("hibernate.cfg.xml");
-		            cfg.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1521:xe");
-		            cfg.setProperty("hibernate.connection.username", rb.getString("db.username"));
-		            cfg.setProperty("hibernate.connection.password", rb.getString("db.password"));
-		            
-		            SessionFactory fact = cfg.buildSessionFactory();
-					Session session = fact.openSession();
-					Transaction t = session.beginTransaction();
-					Query selectQuery = (Query) session.createQuery("select obj from Employee obj where obj.id =:id");
-					selectQuery.setParameter("id", id);
-					 List resultset  =  ((org.hibernate.Query) selectQuery).list();
-					if(resultset.size()==0) {
-						throw new EmployeeNotFoundException("Employee Not Available");
-					}
-					return (Employee) resultset.get(0);
+	
+	public void saveEmployee(Employee employee) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction t = session.beginTransaction();
+		session.save(employee);
+		t.commit();
+		System.out.println("inserted");
+		session.close();
+	}
+	
+	public void deleteEmployeeById(int id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction t = session.beginTransaction();
+		Query deleteQuery =  session.createQuery("DELETE FROM Employee it  where it.id =:ide");
+		deleteQuery.setParameter("ide",id);
+		t.commit();
+        System.out.println("successfully deleted");
+		session.close();
+	 
+ }
 
+	public void updateEmployee(Employee employee) {
+		// TODO Auto-generated method stub
 		
+	}
 
+	
 
 }
-}
-
-
