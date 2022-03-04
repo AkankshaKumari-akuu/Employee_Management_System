@@ -3,8 +3,23 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="styleSheet.css">
 </head>
 <body>
-
+<div style="width:300px; margin:auto; margin-top:150px; border:1px solid red; padding:25px; padding-left:100px">
+	<form action="allemployee" method="post">
+		<button type="submit">Get all Employee</button>
+	</form>
+	<br><br>
+		<a href="register.html"><button>Add a Employee</button></a>
+</div>
+<div style="width:300px; margin:auto; margin-top:10px; border:1px solid red; padding:25px;">
+	<h1>Search Emp By Id</h1>
+	<form action ="Search" method="post">
+		<label style="color:red;">Enter the id to show details</label>
+		<input type="number" placeholder="Employee-id" name ="empId"><br><br>
+		<button type="submit">Show details</button>
+	</form>
+</div>
 </body>
 </html>
