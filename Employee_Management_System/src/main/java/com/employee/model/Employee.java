@@ -1,5 +1,7 @@
 package com.employee.model;
 
+ 
+
 
 import java.util.Date;
 
@@ -107,6 +109,9 @@ public class Employee {
 		this.tax = tax;
 		this.net = net;
 	}
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", dateOfJoining=" + dateOfJoining + ", basicpay=" + basicpay
@@ -115,4 +120,5 @@ public class Employee {
 	
 	
 }
+
 
