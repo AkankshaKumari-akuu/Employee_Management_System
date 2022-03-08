@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Insert </title>
 <link rel="stylesheet" href="styleSheet.css">
 </head>
 <body>
@@ -11,7 +13,7 @@
 		<button type="submit">Get all Employee</button>
 	</form>
 	<br><br>
-		<a href="register.html"><button>Add a Employee</button></a>
+		<a href="EmployeeForm"><button>Add a Employee</button></a>
 </div>
 <div style="width:300px; margin:auto; margin-top:10px; border:1px solid red; padding:25px;">
 	<h1>Search Emp By Id</h1>

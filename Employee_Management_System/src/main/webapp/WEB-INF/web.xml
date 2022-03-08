@@ -4,7 +4,7 @@
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     version="3.0">
 
-	<display-name>Employee_Management_System</display-name>
+	<display-name>Spring MVC Hibernate CRUD Example</display-name>
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>

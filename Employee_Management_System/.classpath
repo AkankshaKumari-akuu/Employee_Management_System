@@ -6,7 +6,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="resource"/>
+	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="lib" path="C:/Users/Dhesinguraja v/Desktop/New folder/jar/ucp-19.3.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/siva reddy/Downloads/OJDBC_8_JAR_Files/ojdbc8-19.3.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/siva reddy/Downloads/OJDBC_8_JAR_Files/ons-19.3.0.0.jar"/>

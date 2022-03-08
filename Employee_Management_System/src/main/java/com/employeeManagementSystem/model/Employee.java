@@ -1,9 +1,4 @@
-package com.employee.model;
-
- 
-
-
-import java.util.Date;
+package com.employeeManagementSystem.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,33 +11,31 @@ import javax.persistence.Table;
 public class Employee {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int id;
-	//name attribute 
 	@Column(name="Name")
 	private String name;
 	
 	@Column(name="DateOfJoining")
-	private Date dateOfJoining;
+	private String dateOfJoining;
 	
 	@Column(name="BasicPay")
 	private double basicpay;
 	
 	@Column(name="DA")
+
 	private double da;
-	
 	@Column(name="HRA")
+
 	private double hra;
-	
 	@Column(name="GROSS")
+
 	private double gross;
-	
 	@Column(name="TAX")
 	private double tax;
-	
 	@Column(name="NET")
 	private double net;
-	
 	public int getId() {
 		return id;
 	}
@@ -55,10 +48,10 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getDateOfJoining() {
+	public String getDateOfJoining() {
 		return dateOfJoining;
 	}
-	public void setDateOfJoining(Date dateOfJoining) {
+	public void setDateOfJoining(String dateOfJoining) {
 		this.dateOfJoining = dateOfJoining;
 	}
 	public double getBasicpay() {
@@ -97,9 +90,10 @@ public class Employee {
 	public void setNet(double net) {
 		this.net = net;
 	}
-	public Employee(String name, Date dateOfJoining, double basicpay, double da, double hra, double gross,
+	public Employee(String name, String dateOfJoining, double basicpay, double da, double hra, double gross,
 			double tax, double net) {
-	
+		//this.id=id;
+		super();
 		this.name = name;
 		this.dateOfJoining = dateOfJoining;
 		this.basicpay = basicpay;
@@ -109,9 +103,8 @@ public class Employee {
 		this.tax = tax;
 		this.net = net;
 	}
-	public Employee() {
-		// TODO Auto-generated constructor stub
-	}
+	
+	public Employee() {}
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", dateOfJoining=" + dateOfJoining + ", basicpay=" + basicpay
@@ -120,5 +113,3 @@ public class Employee {
 	
 	
 }
-
-
