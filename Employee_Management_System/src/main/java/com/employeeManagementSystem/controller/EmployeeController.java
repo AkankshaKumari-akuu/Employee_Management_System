@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.employeeManagementSystem.model.Employee;
+import com.employeeManagementSystem.model.EmployeeOperation;
 import com.employeeManagementSystem.service.EmployeeService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -35,44 +36,41 @@ public class EmployeeController {
 	@GetMapping("/")
 	public String showIndexPage(@ModelAttribute Employee employee) {
 
-		//log.info("start loginpage");
+		//Log.info("start loginpage");
 		//log.info("end loginpage");
 
 		return "index";
 	}
 
-	
-	@PostMapping("/Search")
-	public String searchEmployee(@ModelAttribute int id, ModelMap model, HttpSession session) {
-		//log.info("start fetchDetails");
-
-		//log.debug("" + employeeService.getEmployeeById(4));
-		//log.info(""+id);
-		return "employee";
-	}
-	
 	@RequestMapping(value = "/allemployee")
-	public String listEmployee(ModelMap model) throws IOException {
+	public ModelAndView listEmployee(ModelAndView model) throws IOException {
 		List<Employee> listEmployee = employeeService.getAllEmployee();
-		model.addAttribute("listEmployee", listEmployee);
-		return "home";
-	}
-	@RequestMapping(value = "/newEmployee", method = RequestMethod.GET)
-	public ModelAndView newContact(ModelAndView model) {
-		Employee employee = new Employee();
-		model.addObject("employee", employee);
-		model.setViewName("EmployeeForm");
+		model.addObject("listEmployee", listEmployee);
+		model.setViewName("home");
 		return model;
 	}
-
-	@RequestMapping(value = "/saveEmployee", method = RequestMethod.POST)
-	public ModelAndView saveEmployee(@ModelAttribute Employee employee) {
-		if (employee.getId() == 0) { 
-			employeeService.addEmployee(employee);
-		} else {
-			employeeService.updateEmployee(employee);
-		}
-		return new ModelAndView("redirect:/");
+	
+	
+	@GetMapping("/newEmployee")
+	public String employeeForm(@ModelAttribute Employee employee) {
+		return "EmployeeForm";
 	}
 	
+	@RequestMapping(value = "/save", method = RequestMethod.GET)
+	public String seaveEmployee(@RequestParam String empName, @RequestParam String doj, @RequestParam String basicPay ) throws IOException {
+		Double bp = Double.parseDouble(basicPay);
+		EmployeeOperation empop= new EmployeeOperation();
+		List<Double> salary = empop.salaryOperation(bp);
+		Employee emp = new Employee(empName, doj, bp, salary.get(0), salary.get(1), salary.get(2), salary.get(3), salary.get(4));
+		employeeService.addEmployee(emp);
+		return "success";
+	}
+	
+	@RequestMapping(value = "/Search", method = RequestMethod.GET)
+	public ModelAndView searEmployee(@RequestParam int empId,ModelAndView model) throws IOException {
+		Employee emp = employeeService.getEmployeeById(empId);
+		model.addObject("employee",emp);
+		model.setViewName("employee");
+		return model;
+	}
 }
