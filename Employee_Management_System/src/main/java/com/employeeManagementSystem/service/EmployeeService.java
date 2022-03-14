@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 import com.employeeManagementSystem.exception.DuplicateValueException;
 import com.employeeManagementSystem.exception.EmployeeNotFound;
 import com.employeeManagementSystem.model.Employee;
+import com.employeeManagementSystem.model.User;
 import com.employeeManagementSystem.repo.EmployeeRepo;
+import com.employeeManagementSystem.repo.UserRepo;
 
 @Service
 public class EmployeeService {
 	
 	@Autowired
 	private EmployeeRepo employeeRepo;
+	
+	@Autowired
+	private UserRepo userRepo;
 	
 	public Employee addEmployee(Employee employee) {
 		Optional<Employee> optEmp = employeeRepo.findById(employee.getId());
@@ -63,6 +68,19 @@ public class EmployeeService {
 		else {
 			throw new EmployeeNotFound("Not present that employee");
 		}
+	}
+	
+	public boolean findUser(String userId, String password) {
+		Optional<User> u = userRepo.findById(userId);
+		if(u.isPresent()) {
+			User user = u.get();
+			if(user.getPassword().equals(password)) {
+				return true;
+			}
+			return false;
+		}
+		return false;
+		
 	}
 
 }

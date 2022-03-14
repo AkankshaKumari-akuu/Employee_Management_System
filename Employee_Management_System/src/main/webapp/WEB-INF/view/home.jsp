@@ -35,6 +35,9 @@
 					<td>${employee.getGross()}</td>
 					<td>${employee.getTax()}</td>
 					<td>${employee.getNet()}</td>
+					<td><a href="editEmployee?id=${employee.getId()}">Edit</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a
+						href="deleteEmployee?id=${employee.getId()}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>

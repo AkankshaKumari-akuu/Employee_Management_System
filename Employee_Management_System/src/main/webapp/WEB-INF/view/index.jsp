@@ -13,11 +13,11 @@
 		<button type="submit">Get all Employee</button>
 	</form>
 	<br><br>
-		<a href="EmployeeForm"><button>Add a Employee</button></a>
+		<a href="newEmployee"><button>Add a Employee</button></a>
 </div>
 <div style="width:300px; margin:auto; margin-top:10px; border:1px solid red; padding:25px;">
 	<h1>Search Emp By Id</h1>
-	<form action ="Search" method="post">
+	<form action ="Search">
 		<label style="color:red;">Enter the id to show details</label>
 		<input type="number" placeholder="Employee-id" name ="empId"><br><br>
 		<button type="submit">Show details</button>

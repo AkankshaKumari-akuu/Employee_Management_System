@@ -3,6 +3,7 @@ package com.employeeManagementSystem.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,23 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 
-	@GetMapping("/")
+	@GetMapping("/home")
 	public String showIndexPage(@ModelAttribute Employee employee) {
 
-		//Log.info("start loginpage");
+		//log.info("start loginpage");
 		//log.info("end loginpage");
 
-		return "index";
+		return "login";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String userLogin(@RequestParam String userId, String password,ModelAndView model) throws IOException {
+		if(employeeService.findUser(userId, password)) {
+			return "index";
+		}
+		else {
+			return "login";
+		}
 	}
 
 	@RequestMapping(value = "/allemployee")
@@ -57,12 +68,21 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.GET)
-	public String seaveEmployee(@RequestParam String empName, @RequestParam String doj, @RequestParam String basicPay ) throws IOException {
+	public String seaveEmployee(@RequestParam int id, String empName, @RequestParam String doj, @RequestParam String basicPay ) throws IOException {
+		if(id==0) {
 		Double bp = Double.parseDouble(basicPay);
 		EmployeeOperation empop= new EmployeeOperation();
 		List<Double> salary = empop.salaryOperation(bp);
 		Employee emp = new Employee(empName, doj, bp, salary.get(0), salary.get(1), salary.get(2), salary.get(3), salary.get(4));
 		employeeService.addEmployee(emp);
+		}
+		else {
+			Double bp = Double.parseDouble(basicPay);
+			EmployeeOperation empop= new EmployeeOperation();
+			List<Double> salary = empop.salaryOperation(bp);
+			Employee emp = new Employee(id,empName, doj, bp, salary.get(0), salary.get(1), salary.get(2), salary.get(3), salary.get(4));
+			employeeService.updateEmployee(emp);
+		}
 		return "success";
 	}
 	
@@ -71,6 +91,24 @@ public class EmployeeController {
 		Employee emp = employeeService.getEmployeeById(empId);
 		model.addObject("employee",emp);
 		model.setViewName("employee");
+		return model;
+	}
+	
+	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.GET)
+	public ModelAndView deleteEmployee(HttpServletRequest request) {
+		int employeeId = Integer.parseInt(request.getParameter("id"));
+		Employee emp = employeeService.getEmployeeById(employeeId);
+		employeeService.deleteEmployee(emp);
+		return new ModelAndView("redirect:/portal/allemployee");
+	}
+
+	@RequestMapping(value = "/editEmployee", method = RequestMethod.GET)
+	public ModelAndView editContact(HttpServletRequest request) {
+		int employeeId = Integer.parseInt(request.getParameter("id"));
+		Employee employee = employeeService.getEmployeeById(employeeId);
+		ModelAndView model = new ModelAndView("EmployeeForm");
+		model.addObject("employee", employee);
+
 		return model;
 	}
 }
