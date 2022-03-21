@@ -39,7 +39,8 @@ public class EmployeeService {
 			return optEmp.get();
 		}
 		else {
-			throw new EmployeeNotFound("Employee not present");
+			//throw new EmployeeNotFound("Employee not present");
+			return null;
 		}
 	}
 	
@@ -81,6 +82,11 @@ public class EmployeeService {
 		}
 		return false;
 		
+	}
+	
+	public boolean addUser(User user) {
+		userRepo.save(user);
+		return true;
 	}
 
 }

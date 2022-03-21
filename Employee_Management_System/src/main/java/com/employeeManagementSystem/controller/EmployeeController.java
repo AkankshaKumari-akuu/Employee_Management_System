@@ -18,16 +18,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.employeeManagementSystem.model.Employee;
 import com.employeeManagementSystem.model.EmployeeOperation;
+import com.employeeManagementSystem.model.User;
 import com.employeeManagementSystem.service.EmployeeService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RequestMapping("/portal")
-@Controller
+@RestController
 @Slf4j
 public class EmployeeController {
 	
@@ -35,22 +37,30 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 
 	@GetMapping("/home")
-	public String showIndexPage(@ModelAttribute Employee employee) {
+	public ModelAndView showIndexPage(ModelAndView model) {
 
 		//log.info("start loginpage");
 		//log.info("end loginpage");
 
-		return "login";
+		model.setViewName("login");
+		return model;
+	}
+	
+	@GetMapping("/index")
+	public ModelAndView portalPage(ModelAndView model) {
+		model.setViewName("index");
+		return model;
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String userLogin(@RequestParam String userId, String password,ModelAndView model) throws IOException {
+	public ModelAndView userLogin(@RequestParam String userId, String password,ModelAndView model) throws IOException {
 		if(employeeService.findUser(userId, password)) {
-			return "index";
+			model.setViewName("index");
 		}
 		else {
-			return "login";
+		model.setViewName("login");
 		}
+		return model;
 	}
 
 	@RequestMapping(value = "/allemployee")
@@ -63,12 +73,15 @@ public class EmployeeController {
 	
 	
 	@GetMapping("/newEmployee")
-	public String employeeForm(@ModelAttribute Employee employee) {
-		return "EmployeeForm";
+	public ModelAndView employeeForm(ModelAndView model) {
+		Employee employee = new Employee(0,"","",0,0,0,0,0,0);
+		model.addObject("employee", employee);
+		model.setViewName("EmployeeForm");
+		return model;
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.GET)
-	public String seaveEmployee(@RequestParam int id, String empName, @RequestParam String doj, @RequestParam String basicPay ) throws IOException {
+	public ModelAndView seaveEmployee(@RequestParam int id, String empName, @RequestParam String doj, @RequestParam String basicPay, ModelAndView model ) throws IOException {
 		if(id==0) {
 		Double bp = Double.parseDouble(basicPay);
 		EmployeeOperation empop= new EmployeeOperation();
@@ -83,15 +96,22 @@ public class EmployeeController {
 			Employee emp = new Employee(id,empName, doj, bp, salary.get(0), salary.get(1), salary.get(2), salary.get(3), salary.get(4));
 			employeeService.updateEmployee(emp);
 		}
-		return "success";
+		model.setViewName("index");
+		return model;
 	}
 	
 	@RequestMapping(value = "/Search", method = RequestMethod.GET)
 	public ModelAndView searEmployee(@RequestParam int empId,ModelAndView model) throws IOException {
 		Employee emp = employeeService.getEmployeeById(empId);
-		model.addObject("employee",emp);
-		model.setViewName("employee");
-		return model;
+		if(emp!=null) {
+			model.addObject("employee",emp);
+			model.setViewName("employee");
+			return model;
+		}
+		else {
+			model.setViewName("success");
+			return model;
+		}
 	}
 	
 	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.GET)
@@ -110,5 +130,34 @@ public class EmployeeController {
 		model.addObject("employee", employee);
 
 		return model;
+	}
+	
+	@GetMapping("/registerUser")
+	public ModelAndView registerUser(ModelAndView model) {
+		model.setViewName("registerUser");
+		return model;
+	}
+	
+	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
+	public ModelAndView addUser(HttpServletRequest request,ModelAndView model) {
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		int empId=Integer.parseInt(request.getParameter("empId"));
+		String userId = request.getParameter("userId");
+		String email = request.getParameter("email");
+		String password =request.getParameter("password");
+		String address= request.getParameter("address");
+		
+		Employee emp = employeeService.getEmployeeById(empId);
+		if(emp!=null) {
+		User user = new User(userId, password, firstName, lastName, email, address, emp);
+		employeeService.addUser(user);
+		model.setViewName("success");
+		return model;
+		}
+		else {
+			model.setViewName("fail");
+			return model;
+		}
 	}
 }
