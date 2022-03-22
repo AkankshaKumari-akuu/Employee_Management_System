@@ -1,0 +1,25 @@
+ <div style="position:left; top: 50%;left: 0%;">
+   <form (ngSubmit)="onSubmit1()" #logout="ngForm">
+  <button type="submit" class="btn btn-info">logout</button>
+  <button type="submit" class="btn btn-info">home</button>
+   </form>
+ </div>
+<div style="width:300px; margin:auto; margin-top:150px; border:1px solid red; padding:25px; padding-left:100px">
+	<form (ngSubmit)="onSubmit2()" #index="ngForm">
+    <button type="submit" [disabled]="!index.form.valid" class="btn btn-info">Get All Employee</button>
+ 
+	<br><br>
+  <button type="submit" [disabled]="!index.form.valid" class="btn btn-info">Add a Employee</button>
+</div>
+<div style="width:300px; margin:auto; margin-top:10px; border:1px solid red; padding:25px;">
+	<h1>Search Emp By Id</h1>
+	<div>
+    <label for="search">Search Employee id</label>
+    <input type="text" [(ngModel)]="userid"  class="form-control" id="userid" name="userid" 
+      required #userid="ngModel">
+    <div [hidden]="!userid.pristine" class="alert alert-danger">userid is required</div>
+
+    <button type="submit" [disabled]="!index.form.valid" class="btn btn-info">Show Detail</button>
+	</form>
+</div>
+ 
