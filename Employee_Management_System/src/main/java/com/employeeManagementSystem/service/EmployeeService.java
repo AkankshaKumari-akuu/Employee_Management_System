@@ -1,5 +1,6 @@
 package com.employeeManagementSystem.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,7 +84,11 @@ public class EmployeeService {
 		return false;
 		
 	}
-	
+
+	public List<User> allUser(){
+		List<User> u=userRepo.findAll();
+		return u;
+	}
 	public boolean addUser(User user) {
 		userRepo.save(user);
 		return true;
