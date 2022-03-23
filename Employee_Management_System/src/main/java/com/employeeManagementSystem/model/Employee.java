@@ -5,23 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@Getter
-@Setter
 @Entity
 @Table(name="Employee")
 public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	
+	@Column(name="id")
 	private int id;
 	@Column(name="Name")
 	private String name;
@@ -45,7 +36,6 @@ public class Employee {
 	private double tax;
 	@Column(name="NET")
 	private double net;
-	
 	public int getId() {
 		return id;
 	}
@@ -100,10 +90,11 @@ public class Employee {
 	public void setNet(double net) {
 		this.net = net;
 	}
-	public Employee(String name, String dateOfJoining, double basicpay, double da, double hra, double gross,
+	public Employee(int id,String name, String dateOfJoining, double basicpay, double da, double hra, double gross,
 			double tax, double net) {
 		//this.id=id;
 		super();
+		this.id=id;
 		this.name = name;
 		this.dateOfJoining = dateOfJoining;
 		this.basicpay = basicpay;
@@ -115,19 +106,6 @@ public class Employee {
 	}
 	
 	public Employee() {}
-	public Employee(int id, String name, String dateOfJoining, double basicpay, double da, double hra, double gross,
-			double tax, double net) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.dateOfJoining = dateOfJoining;
-		this.basicpay = basicpay;
-		this.da = da;
-		this.hra = hra;
-		this.gross = gross;
-		this.tax = tax;
-		this.net = net;
-	}
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", dateOfJoining=" + dateOfJoining + ", basicpay=" + basicpay

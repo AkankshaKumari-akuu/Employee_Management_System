@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.employeeManagementSystem.exception.DuplicateValueException;
 import com.employeeManagementSystem.exception.EmployeeNotFound;
@@ -34,6 +35,17 @@ public class EmployeeService {
 		}
 	}
 	
+	
+	/*public Employee getEmployeeById(int id) {
+		Optional<Employee> optEmp = employeeRepo.findById(id);
+		if(optEmp.isPresent()) {
+			return optEmp.get();
+		}
+		else {
+			//throw new EmployeeNotFound("Employee not present");
+			return null;
+		}
+	}*/
 	public Employee getEmployeeById(int id) {
 		Optional<Employee> optEmp = employeeRepo.findById(id);
 		if(optEmp.isPresent()) {
@@ -72,27 +84,13 @@ public class EmployeeService {
 		}
 	}
 	
-	/*public boolean findUser(String userId, String password) {
-		Optional<User> u = userRepo.findAllById(userId);
-		if(u.isPresent()) {
-			User user = u.get();
-			if(user.getPassword().equals(password)) {
-				return true;
-			}
-			return false;
-		}
-		return false;
-		
-	}
-
-	public List<User> allUser(){
-		List<User> u=userRepo.findAll();
-		return u;
-	}
-	public boolean addUser(User user) {
+	
+	
+	/*public boolean addUser(User user) {
 		userRepo.save(user);
 		return true;
 	}*/
+	
 	
 
 }

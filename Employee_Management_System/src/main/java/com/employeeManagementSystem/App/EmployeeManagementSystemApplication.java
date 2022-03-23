@@ -1,9 +1,9 @@
-package com.employeeManagementSystem;
+package com.employeeManagementSystem.App;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.employeeManagementSystem"})
 
 public class EmployeeManagementSystemApplication {
 
