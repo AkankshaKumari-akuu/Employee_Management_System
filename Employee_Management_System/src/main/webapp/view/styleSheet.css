@@ -1,0 +1,22 @@
+body{
+      background-color:grey;
+      background-image: url("4321845.jpg")
+    }
+    
+table{
+	margin-left: auto;
+  	margin-right: auto;
+	border-collapse: separate;
+  	border-spacing: 15px;
+}
+table,tr{
+	border: 1px solid green;
+}
+
+h1 {
+  text-align: center;
+}
+
+span{
+	color:red;
+}

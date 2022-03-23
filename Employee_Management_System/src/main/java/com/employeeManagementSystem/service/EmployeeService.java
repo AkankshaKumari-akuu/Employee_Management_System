@@ -72,8 +72,8 @@ public class EmployeeService {
 		}
 	}
 	
-	public boolean findUser(String userId, String password) {
-		Optional<User> u = userRepo.findById(userId);
+	/*public boolean findUser(String userId, String password) {
+		Optional<User> u = userRepo.findAllById(userId);
 		if(u.isPresent()) {
 			User user = u.get();
 			if(user.getPassword().equals(password)) {
@@ -92,6 +92,7 @@ public class EmployeeService {
 	public boolean addUser(User user) {
 		userRepo.save(user);
 		return true;
-	}
+	}*/
+	
 
 }

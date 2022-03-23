@@ -1,6 +1,7 @@
 package com.employeeManagementSystem.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,7 @@ import com.employeeManagementSystem.model.Employee;
 import com.employeeManagementSystem.model.EmployeeOperation;
 import com.employeeManagementSystem.model.User;
 import com.employeeManagementSystem.service.EmployeeService;
+import com.employeeManagementSystem.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,17 +36,15 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Slf4j
 @CrossOrigin(origins = "http://localhost:4200")
-
 public class EmployeeController {
 	
 	@Autowired
 	private EmployeeService employeeService;
+	@Autowired
+    private UserService userservice;
 
 	@GetMapping("/home")
 	public ModelAndView showIndexPage(ModelAndView model) {
-
-		//log.info("start loginpage");
-		//log.info("end loginpage");
 
 		model.setViewName("login");
 		return model;
@@ -56,7 +56,7 @@ public class EmployeeController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView userLogin(@RequestParam String userId, String password,ModelAndView model) throws IOException {
 		if(employeeService.findUser(userId, password)) {
 			model.setViewName("index");
@@ -65,8 +65,15 @@ public class EmployeeController {
 		model.setViewName("login");
 		}
 		return model;
+	}*/
+	@GetMapping(path="/allUserList",produces="application/json")
+	public ArrayList<User> getAllUser(){
+		return userservice.getAllUser();
 	}
-
+	@PostMapping(path = "/registerUser", consumes = "application/json")
+    public void addUser(@RequestBody User user) {
+		userservice.saveUser(user);
+    }
 	@RequestMapping(value = "/allemployee")
 	public ModelAndView listEmployee(ModelAndView model) throws IOException {
 		List<Employee> listEmployee = employeeService.getAllEmployee();
@@ -90,7 +97,7 @@ public class EmployeeController {
 		Double bp = Double.parseDouble(basicPay);
 		EmployeeOperation empop= new EmployeeOperation();
 		List<Double> salary = empop.salaryOperation(bp);
-		Employee emp = new Employee(empName, doj, bp, salary.get(0), salary.get(1), salary.get(2), salary.get(3), salary.get(4));
+		Employee emp = new Employee(id,empName, doj, bp, salary.get(0), salary.get(1), salary.get(2), salary.get(3), salary.get(4));
 		employeeService.addEmployee(emp);
 		}
 		else {
@@ -141,37 +148,20 @@ public class EmployeeController {
 		model.setViewName("registerUser");
 		return model;
 	}
-	@PostMapping(path = "/registerUser", consumes = "application/json")
-    public void addUser(@RequestBody User user) {
-		employeeService.addUser(user);
-    
-    }
 	
-	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
-	public ModelAndView addUser(HttpServletRequest request,ModelAndView model) {
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
-		int empId=Integer.parseInt(request.getParameter("empId"));
-		String userId = request.getParameter("userId");
-		String email = request.getParameter("email");
-		String password =request.getParameter("password");
-		String address= request.getParameter("address");
-		
-		Employee emp = employeeService.getEmployeeById(empId);
-		if(emp!=null) {
-		User user = new User(userId, password, firstName, lastName, email, address, emp);
-		employeeService.addUser(user);
-		model.setViewName("success");
-		return model;
-		}
-		else {
-			model.setViewName("fail");
-			return model;
-		}
-	}
+	/*
+	 * @RequestMapping(value = "/newUser", method = RequestMethod.GET) public
+	 * ModelAndView addUser(HttpServletRequest request,ModelAndView model) { String
+	 * firstName = request.getParameter("firstName"); String lastName =
+	 * request.getParameter("lastName"); int
+	 * empId=Integer.parseInt(request.getParameter("empId")); String userId =
+	 * request.getParameter("userId"); String email = request.getParameter("email");
+	 * String password =request.getParameter("password"); String address=
+	 * request.getParameter("address"); long phone=8789; Employee emp =
+	 * employeeService.getEmployeeById(empId); if(emp!=null) { User user = new
+	 * User(userId, password, firstName, lastName, email,phone, address, emp);
+	 * employeeService.addEmployee(emp); model.setViewName("success"); return model;
+	 * } else { model.setViewName("fail"); return model; } }
+	 */
 	
-	@GetMapping(path="/allUserList",produces="application/json")
-	public List<User> getAllUser(){
-		return employeeService.allUser();
-	}
 }

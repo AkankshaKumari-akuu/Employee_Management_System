@@ -1,25 +1,68 @@
- <div style="position:left; top: 50%;left: 0%;">
-   <form (ngSubmit)="onSubmit1()" #logout="ngForm">
-  <button type="submit" class="btn btn-info">logout</button>
-  <button type="submit" class="btn btn-info">home</button>
-   </form>
- </div>
-<div style="width:300px; margin:auto; margin-top:150px; border:1px solid red; padding:25px; padding-left:100px">
-	<form (ngSubmit)="onSubmit2()" #index="ngForm">
-    <button type="submit" [disabled]="!index.form.valid" class="btn btn-info">Get All Employee</button>
- 
-	<br><br>
-  <button type="submit" [disabled]="!index.form.valid" class="btn btn-info">Add a Employee</button>
-</div>
-<div style="width:300px; margin:auto; margin-top:10px; border:1px solid red; padding:25px;">
-	<h1>Search Emp By Id</h1>
-	<div>
-    <label for="search">Search Employee id</label>
-    <input type="text" [(ngModel)]="userid"  class="form-control" id="userid" name="userid" 
-      required #userid="ngModel">
-    <div [hidden]="!userid.pristine" class="alert alert-danger">userid is required</div>
+<div class="body">
+  <div style="color: white" align="right">
+    <h4 align="right">
+      <br />
+      <a style="color: green" href="/userLogin"><button>Log out</button> </a>
+    </h4>
+  </div>
+  <div align="center">
+    <h1 style="color: red">Employee MANAGEMENT SYSTEM</h1>
+    <br />
+    <br />
+    <br /><br />
+    <input
+    class="anchor1"
+    type="button"
+    value="Find Employee by Name "
+    (click)="allemployee()"
+  />
+    <!-- <input
+      class="anchor1"
+      type="button"
+      value="Find Employee by Name "
+      (click)="employeenamestatus()"
+    />
+    <br /><br />
+    
 
-    <button type="submit" [disabled]="!index.form.valid" class="btn btn-info">Show Detail</button>
-	</form>
+    <input
+      class="anchor2"
+      type="button"
+      value="Search By Author"
+      (click)="bookauthorstatus()"
+    />
+    <br />
+    <br />
+  -->
+    <!--<div *ngIf="authorstatus" id="au">
+      <form #form2="ngForm" (ngSubmit)="showBookByAuthor(form2)">
+        <label for="author"></label>
+
+        <input name="author" required ngModel type="text" id="author " />
+
+        <input class="button" type="Submit" value="Search" />
+      </form>
+    </div>
+    <br />
+    <br />
+    <input
+      class="anchor3"
+      type="button"
+      value="Search By Category"
+      (click)="bookcatstatus()"
+    />
+    <br />
+    <br />
+    <div *ngIf="catstatus" id="cat">
+      <form #form3="ngForm" (ngSubmit)="showBookByCategory(form3)">
+        <label for="category"></label>
+
+        <input name="category" required ngModel type="text" id="category" />
+
+        <input class="button" type="Submit" value="Search" />
+      </form>
+    </div>
+    <br />
+    <br />
+  </div>-->
 </div>
- 

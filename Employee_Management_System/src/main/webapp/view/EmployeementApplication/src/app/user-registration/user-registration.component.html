@@ -1,0 +1,125 @@
+<div class="html">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #UserRegistration="ngForm">
+        <div class="form-group">
+          <label for="userid">userid</label>
+          <input
+            type="text"
+            [(ngModel)]="user.userid"
+            class="form-control"
+            id="userid"
+            name="userid"
+            placeholder="Enter your userid"
+            required
+            #userid="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label for="fname">fname</label>
+          <input
+            type="text"
+            [(ngModel)]="user.first"
+            class="form-control"
+            id="fname"
+            name="fname"
+            placeholder="Enter your fname"
+            required
+            #fname="ngModel"
+          />
+        </div>
+        <div [hidden]="!fname.pristine" class="alert alert-danger">
+          fname is required
+        </div>
+        <div class="form-group">
+          <label for="lname">lname</label>
+          <input
+            type="text"
+            [(ngModel)]="user.last"
+            class="form-control"
+            id="lname"
+            name="lname"
+            placeholder="Enter your lname"
+            required
+            #lname="ngModel"
+          />
+        </div>
+        <div [hidden]="!lname.pristine" class="alert alert-danger">
+          lname is required
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            [(ngModel)]="user.email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+            #email="ngModel"
+          />
+          <div [hidden]="!email.pristine" class="alert alert-danger">
+            Email is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone number">Phoneno</label>
+          <input
+            type="text"
+            [(ngModel)]="user.phone"
+            class="form-control"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+            #phone="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="text"
+            [(ngModel)]="user.password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            required
+            #password="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label for="confirm password">Confirm Password</label>
+          <input
+            type="text"
+            class="form-control"
+            id="confirm password"
+            name="confirm password"
+            placeholder="Enter confirm password"
+            required
+            #confirm
+            password="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input
+            type="text"
+            [(ngModel)]="user.address"
+            class="form-control"
+            id="address"
+            name="address"
+            placeholder="Enter your address"
+            required
+            #address="ngModel"
+          />
+        </div>
+        <button
+          type="submit"
+          [disabled]="!UserRegistration.form.valid"
+          class="btn btn-info">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>

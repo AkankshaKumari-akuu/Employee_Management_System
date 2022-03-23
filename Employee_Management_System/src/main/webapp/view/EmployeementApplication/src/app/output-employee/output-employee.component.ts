@@ -1,20 +1,26 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../service/User.service';
-import { User } from '../model/User';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Employee } from '../model/Employee';
+import { EmployeeService } from '../service/employee.service';
 
 @Component({
-  selector: 'app-User_form',
-  templateUrl: './User_form.component.html',
-  styleUrls: ['./User_form.component.css']
+  selector: 'app-output-employee',
+  templateUrl: './output-employee.component.html',
+  styleUrls: ['./output-employee.component.css']
 })
-export class UserFormComponent {
+export class OutputAllEmpComponent implements OnInit {
+  	
+  constructor(private employeeService:EmployeeService,private route: ActivatedRoute) { }
+   Employees:Employee[]=[];
+ 
+  ngOnInit(): void {
+	  console.log("in the output");
 
-  user: User;
-
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
-    this.user = new User();
-  }
-
-   
+	  this.employeeService.getAllemp().subscribe(x=>this.Employees=x);
+	
+		
+  };
 }
+
+  
+
