@@ -5,7 +5,9 @@ html,
 }
 
 .body {
-  background-color: grey;
+  width: 1520px;
+  height: 700px;
+  background-color: rgb(85, 74, 74);
   background-image: url("https://miro.medium.com/max/1400/1*Bhy1_Q8Zo8Y9kTwslMP-9A.jpeg");
 }
 

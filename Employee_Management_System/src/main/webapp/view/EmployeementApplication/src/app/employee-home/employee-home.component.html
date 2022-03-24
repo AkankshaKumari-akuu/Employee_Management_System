@@ -10,19 +10,25 @@
     <br />
     <br />
     <br /><br />
+    <br />
+    <br />
     <input
       class="anchor1"
       type="button"
       value="Find All Employee "
       (click)="allemployee()"
     />
+    <br>
+    <br/>
     <input
-      class="anchor1"
+      class="anchor2"
       type="button"
       value="Find Employee by Id"
       (click)="employeeid()"
     />
-    <br /><br />
+    <br />
+    <br />
+   
 
     <div *ngIf="employeeidstatus" id="au">
       <form #form2="ngForm" (ngSubmit)="showEmpById(form2)">
@@ -47,11 +53,11 @@
       class="anchor1"
       type="button"
       value="Delete Employee by Id"
-      (click)="employeeid()"
+      (click)="employeedeletebyid()"
     />
     <br /><br />
 
-    <div *ngIf="employeeidstatus" id="au">
+    <div *ngIf="employeeiddeletestatus" id="au">
       <form #form3="ngForm" (ngSubmit)="deleteEmpById(form3)">
         <label for="id"></label>
 
@@ -71,8 +77,13 @@
 
     <!-- Add Employee-->
     <a routerLink="/employeeRegistration">
-      <button class="anchor1">Create New Employee</button></a
+      <button class="anchor2">Create New Employee</button></a>
+      <br>
+      <br/>
+    <a routerLink="/employeeRegistration">
+      <button class="anchor2">Edit Employee</button></a
     >
+
 
     <!--
     <input

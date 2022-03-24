@@ -1,4 +1,5 @@
-<div class="html">
+<div class="html" align="center">
+  <h2 align="center">USER REGISTRATION</h2>
     <div class="card-body">
       <form (ngSubmit)="onSubmit()" #UserRegistration="ngForm">
         <div class="form-group">
@@ -13,6 +14,7 @@
             required
             #userid="ngModel"
           />
+          <br><br/>
         </div>
         <div class="form-group">
           <label for="fname">fname</label>
@@ -27,6 +29,7 @@
             #fname="ngModel"
           />
         </div>
+        <br><br/>
         <div [hidden]="!fname.pristine" class="alert alert-danger">
           fname is required
         </div>
@@ -43,6 +46,7 @@
             #lname="ngModel"
           />
         </div>
+        <br><br/>
         <div [hidden]="!lname.pristine" class="alert alert-danger">
           lname is required
         </div>
@@ -58,6 +62,7 @@
             required
             #email="ngModel"
           />
+          <br><br/>
           <div [hidden]="!email.pristine" class="alert alert-danger">
             Email is required
           </div>
@@ -74,6 +79,7 @@
             required
             #phone="ngModel"
           />
+          <br><br/>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
@@ -88,6 +94,7 @@
             #password="ngModel"
           />
         </div>
+        <br><br/>
         <div class="form-group">
           <label for="confirm password">Confirm Password</label>
           <input
@@ -101,6 +108,7 @@
             password="ngModel"
           />
         </div>
+        <br><br/>
         <div class="form-group">
           <label for="address">Address</label>
           <input

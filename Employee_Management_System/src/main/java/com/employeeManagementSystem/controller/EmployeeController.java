@@ -58,8 +58,8 @@ public class EmployeeController {
 		return emp;
 	}
 
-	// Done
-	@GetMapping(value = "/deleteEmployee/{id}")
+	// Delete Employee
+	@GetMapping(value = "/deleteEmployee/{id}",produces = "application/json")
 	public void deleteEmployee(@PathVariable int id) {
 		Employee emp = employeeService.getEmployeeById(id);
 		employeeService.deleteEmployee(emp);
@@ -67,9 +67,10 @@ public class EmployeeController {
 
 	@PostMapping(value = "/editEmployee", produces = "application/json", consumes = "application/json")
 	public Employee editContact(@RequestBody Employee employee) {
-		return employeeService.addEmployee(employee);
+		return (Employee) employeeService.updateEmployee(employee);
 	}
-
+   
+	// SaveEmployee
 	@PostMapping(path = "/saveEmployee", consumes = "application/json", produces = "application/json")
 	public Employee addEmployee(@RequestBody Employee employee) {
 		Double bp = employee.getBasicpay();

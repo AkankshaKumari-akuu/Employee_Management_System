@@ -1,17 +1,20 @@
 h1 {
-  color: #0ae312;
+  color: #fc5f04;
 }
 
 table,
 th,
 td {
   width: 40%;
+  height:100%;
   background-color: white;
   border: 1px solid black;
 }
 
 .body {
+  width: 1550px;
+  height: 685px;
   background-color: white;
   background-image: url("https://www.hrfuture.net/wp-content/uploads/elementor/thumbs/Depositphotos_208343728_xl-2015-ok529kg00xom63s5nzsk7x7t8nhap29ds8y4np6v7s.jpg");
-  background-size: cover;
+  background-size: 100%;
 }
