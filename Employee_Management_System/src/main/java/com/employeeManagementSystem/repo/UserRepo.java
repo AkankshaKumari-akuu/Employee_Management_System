@@ -1,9 +1,9 @@
 package com.employeeManagementSystem.repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.employeeManagementSystem.model.User;
 
-public interface UserRepo extends JpaRepository<User,User>{
+public interface UserRepo extends CrudRepository<User, String> {
 
 }

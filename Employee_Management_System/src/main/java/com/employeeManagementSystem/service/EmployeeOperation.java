@@ -1,4 +1,4 @@
-package com.employeeManagementSystem.model;
+package com.employeeManagementSystem.service;
 
 import java.util.ArrayList;
 import java.util.List;

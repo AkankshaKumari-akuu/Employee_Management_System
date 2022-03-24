@@ -4,20 +4,20 @@ import { EmployeeHomeComponent } from './employee-home/employee-home.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { OutputAllEmpComponent } from './output-employee/output-employee.component';
+import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
 const routes: Routes = [
  
-  /*{path:'bookByName/:name', component: OutputBookComponent},
-  {path:'bookByAuthor/:author', component: OutputBookComponent},
-  {path:'bookByCategory/:category', component: OutputBookComponent},
-  {path:'libraryhome', component: EmployeeHomeComponent},
-  {path:'userRegistration', component: UserRegistrationComponent},
-
-
-*/
+ 
+{path: '', pathMatch:"full", redirectTo:"userLogin"},
 {path:'employeehome', component: EmployeeHomeComponent},
-{path:'alEmp', component: OutputAllEmpComponent},
+{path:'allEmployee/:searchtype', component: OutputAllEmpComponent},
 {path:'userRegistration', component: UserRegistrationComponent},
-{path:'userLogin', component: UserLoginComponent}
+{path:'userLogin', component: UserLoginComponent},
+{path:'employeeById/:id/:searchtype', component: OutputAllEmpComponent},
+{path:'deleteById/:id/:searchtype', component: OutputAllEmpComponent},
+{path:'employeeRegistration', component: EmployeeRegistrationComponent},
+
+
 
 
 

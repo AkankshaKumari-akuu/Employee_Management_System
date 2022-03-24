@@ -10,7 +10,7 @@ import { EmployeeService } from '../service/employee.service';
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-user : User;
+   user : User;
   constructor(private route:ActivatedRoute,private router: Router,private employeeService:EmployeeService) {
     this.user= new User();
    }

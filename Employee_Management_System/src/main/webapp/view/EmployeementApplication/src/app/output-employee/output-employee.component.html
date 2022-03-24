@@ -16,31 +16,29 @@
 
     <table border="1">
       <thead>
-			<th>Id</th>
-			<th>Name</th>
-			<th>DOJ</th>
-			<th>Basic Pay</th>
-			<th>DA</th>
-			<th>HRA</th>
-			<th>Gross</th>
-			<th>Tax</th>
-			<th>Net</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>DOJ</th>
+        <th>Basic Pay</th>
+        <th>DA</th>
+        <th>HRA</th>
+        <th>Gross</th>
+        <th>Tax</th>
+        <th>Net</th>
         <tr></tr>
       </thead>
 
       <tbody>
         <tr *ngFor="let employee of Employees">
-          <td>{{employee.id}}</td>
-					<td>{{employee.name}}</td>
-					<td>{{employee.dateOfJoining}}</td>
-					<td>{{employee.basicpay}</td>
-					<td>{{employee.da}}</td>
-					<td>{{employee.hra}}</td>
-					<td>{{employee.gross}}</td>
-					<td>{{employee.tax}}</td>
-					<td>{{employee.net}}</td>
-
-          
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.dateOfJoining }}</td>
+          <td>{{ employee.basicpay }}</td>
+          <td>{{ employee.da }}</td>
+          <td>{{ employee.hra }}</td>
+          <td>{{ employee.gross }}</td>
+          <td>{{ employee.tax }}</td>
+          <td>{{ employee.net }}</td>
         </tr>
       </tbody>
     </table>

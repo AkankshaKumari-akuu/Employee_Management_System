@@ -15,11 +15,22 @@ export class OutputAllEmpComponent implements OnInit {
  
   ngOnInit(): void {
 	  console.log("in the output");
-
-	  this.employeeService.getAllemp().subscribe(x=>this.Employees=x);
-	
+    this.Employees=[];
+	this.route.params.subscribe( (parameters)=>{
 		
-  };
+		if (String(parameters['searchtype']).localeCompare('all') == 0) {
+      this.employeeService.getAllemp().subscribe(x=>this.Employees=x);
+		} 
+    else if(String(parameters['searchtype']).localeCompare('byId') == 0){
+			this.employeeService.findById(parameters['id']).subscribe(x=>this.Employees=x);
+    }
+    else if(String(parameters['searchtype']).localeCompare('delId') == 0){
+			this.employeeService.deleteById(parameters['id']).subscribe(x=>this.Employees=x);
+    }
+
+
+  });
+}
 }
 
   

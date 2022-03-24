@@ -6,45 +6,75 @@
     </h4>
   </div>
   <div align="center">
-    <h1 style="color: red">Employee MANAGEMENT SYSTEM</h1>
+    <h1 style="color: red">EMPLOYEE MANAGEMENT SYSTEM</h1>
     <br />
     <br />
     <br /><br />
     <input
-    class="anchor1"
-    type="button"
-    value="Find Employee by Name "
-    (click)="allemployee()"
-  />
-    <!-- <input
       class="anchor1"
       type="button"
-      value="Find Employee by Name "
-      (click)="employeenamestatus()"
+      value="Find All Employee "
+      (click)="allemployee()"
+    />
+    <input
+      class="anchor1"
+      type="button"
+      value="Find Employee by Id"
+      (click)="employeeid()"
     />
     <br /><br />
-    
 
-    <input
-      class="anchor2"
-      type="button"
-      value="Search By Author"
-      (click)="bookauthorstatus()"
-    />
-    <br />
-    <br />
-  -->
-    <!--<div *ngIf="authorstatus" id="au">
-      <form #form2="ngForm" (ngSubmit)="showBookByAuthor(form2)">
-        <label for="author"></label>
+    <div *ngIf="employeeidstatus" id="au">
+      <form #form2="ngForm" (ngSubmit)="showEmpById(form2)">
+        <label for="id"></label>
 
-        <input name="author" required ngModel type="text" id="author " />
+        <input
+          name="id"
+          required
+          [(ngModel)]="employee.id"
+          type="number"
+          id="id "
+        />
 
         <input class="button" type="Submit" value="Search" />
       </form>
     </div>
     <br />
     <br />
+    <!--  Delete Employee-->
+
+    <input
+      class="anchor1"
+      type="button"
+      value="Delete Employee by Id"
+      (click)="employeeid()"
+    />
+    <br /><br />
+
+    <div *ngIf="employeeidstatus" id="au">
+      <form #form3="ngForm" (ngSubmit)="deleteEmpById(form3)">
+        <label for="id"></label>
+
+        <input
+          name="id"
+          required
+          [(ngModel)]="employee.id"
+          type="number"
+          id="id "
+        />
+
+        <input class="button" type="Submit" value="Delete" />
+      </form>
+    </div>
+    <br />
+    <br />
+
+    <!-- Add Employee-->
+    <a routerLink="/employeeRegistration">
+      <button class="anchor1">Create New Employee</button></a
+    >
+
+    <!--
     <input
       class="anchor3"
       type="button"
@@ -65,4 +95,5 @@
     <br />
     <br />
   </div>-->
+  </div>
 </div>
