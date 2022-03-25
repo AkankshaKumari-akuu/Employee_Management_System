@@ -57,9 +57,16 @@ public class EmployeeController {
 		emp.add(employeeService.getEmployeeById(id));
 		return emp;
 	}
+	
+	@GetMapping(value = "/edit/employee/{id}", produces = "application/json")
+	public Employee getEmployeeEdit(@PathVariable int id) {
+		System.out.println(id);
+	return	employeeService.getEmployeeById(id);
+		
+	}
 
 	// Delete Employee
-	@GetMapping(value = "/deleteEmployee/{id}",produces = "application/json")
+	@GetMapping(value = "/deleteEmployee/{id}")
 	public void deleteEmployee(@PathVariable int id) {
 		Employee emp = employeeService.getEmployeeById(id);
 		employeeService.deleteEmployee(emp);
@@ -67,20 +74,26 @@ public class EmployeeController {
 
 	@PostMapping(value = "/editEmployee", produces = "application/json", consumes = "application/json")
 	public Employee editContact(@RequestBody Employee employee) {
-		return (Employee) employeeService.updateEmployee(employee);
+		// employeeService.getEmployeeById(employee.getId());
+		Double bp = employee.getBasicpay();
+		EmployeeOperation empop = new EmployeeOperation();
+		List<Double> salary = empop.salaryOperation(bp);
+		Employee emp = new Employee(employee.getId(), employee.getName(), employee.getDateOfJoining(), bp,
+				salary.get(0), salary.get(1),
+				salary.get(2), salary.get(3), salary.get(4));
+		return (Employee) employeeService.updateEmployee(emp);
 	}
-   
+
 	// SaveEmployee
 	@PostMapping(path = "/saveEmployee", consumes = "application/json", produces = "application/json")
 	public Employee addEmployee(@RequestBody Employee employee) {
 		Double bp = employee.getBasicpay();
 		EmployeeOperation empop = new EmployeeOperation();
 		List<Double> salary = empop.salaryOperation(bp);
-		Employee emp = new Employee(employee.getId(),employee.getName(), employee.getDateOfJoining(), bp, salary.get(0), salary.get(1),
+		Employee emp = new Employee(employee.getId(), employee.getName(), employee.getDateOfJoining(), bp,
+				salary.get(0), salary.get(1),
 				salary.get(2), salary.get(3), salary.get(4));
 		return employeeService.addEmployee(emp);
 	}
-
-
 
 }
