@@ -1,0 +1,66 @@
+<div class="html">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #EmployeeRegistration="ngForm">
+      <label for="employeeid">Employee Id</label>
+      <input
+        type="number"
+        [(ngModel)]="employee.id"
+        class="form-control"
+        id="employeeid"
+        name="employeeid"
+        placeholder="Enter Id to Update"
+        required
+        #userid="ngModel"
+      />
+
+      <div class="form-group">
+        <label for="employeename">Employee name</label>
+        <input
+          type="text"
+          [(ngModel)]="employee.name"
+          class="form-control"
+          id="employeename"
+          name="employeename"
+          placeholder="Enter your name"
+          required
+          #username="ngModel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="doj">date Of Joining</label>
+        <input
+          type="text"
+          [(ngModel)]="employee.dateOfJoining"
+          class="form-control1"
+          id="doj"
+          name="doj"
+          placeholder="date of joining"
+          required
+          #doj="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="basicpay">Basicpay</label>
+        <input
+          type="text"
+          [(ngModel)]="employee.basicpay"
+          class="form-control2"
+          id="basicpay"
+          name="basicpay"
+          placeholder="Enter your basicpay"
+          required
+          #basicpay="ngModel"
+        />
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="!EmployeeRegistration.form.valid"
+        class="btn btn-info"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

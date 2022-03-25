@@ -1,0 +1,117 @@
+<div class="body">
+  <div style="color: white" align="right">
+    <h4 align="justify" style="color: white">
+      <br />
+      <a style="color: green" href="/employeehome"><button>Home</button> </a>
+      <!--<input type="button" value="Back" onCLick="history.back()" />-->
+      <a style="color: green" href="/userLogin"><button>Logout</button> </a>
+    </h4>
+    <!-- <h4 align="right">
+      <br />
+      <a style="color: green" href="/userLogin"><button>Logout</button> </a>
+    </h4>-->
+  </div>
+
+  <div align="center" *ngIf="showOutput">
+    <h1>Employee List</h1>
+
+    <table border="1">
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>DOJ</th>
+        <th>Basic Pay</th>
+        <th>DA</th>
+        <th>HRA</th>
+        <th>Gross</th>
+        <th>Tax</th>
+        <th>Net</th>
+        <tr></tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let employee of Employees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.dateOfJoining }}</td>
+          <td>{{ employee.basicpay }}</td>
+          <td>{{ employee.da }}</td>
+          <td>{{ employee.hra }}</td>
+          <td>{{ employee.gross }}</td>
+          <td>{{ employee.tax }}</td>
+          <td>{{ employee.net }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br /><br /><br />
+
+  <div *ngIf="showEdit">
+    <div class="html">
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #EmployeeRegistration="ngForm">
+          <label for="employeeid">Employee Id</label>
+          <input
+            type="number"
+            [(ngModel)]="employee.id"
+            class="form-control"
+            id="employeeid"
+            name="employeeid"
+            placeholder="Enter Id to Update"
+            required
+            #userid="ngModel"
+          />
+
+          <div class="form-group">
+            <label for="employeename">Employee name</label>
+            <input
+              type="text"
+              [(ngModel)]="employee.name"
+              class="form-control"
+              id="employeename"
+              name="employeename"
+              placeholder="Enter your name"
+              required
+              #username="ngModel"
+            />
+          </div>
+          <div class="form-group">
+            <label for="doj">date Of Joining</label>
+            <input
+              type="text"
+              [(ngModel)]="employee.dateOfJoining"
+              class="form-control1"
+              id="doj"
+              name="doj"
+              placeholder="date of joining"
+              required
+              #doj="ngModel"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="basicpay">Basicpay</label>
+            <input
+              type="text"
+              [(ngModel)]="employee.basicpay"
+              class="form-control2"
+              id="basicpay"
+              name="basicpay"
+              placeholder="Enter your basicpay"
+              required
+              #basicpay="ngModel"
+            />
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="!EmployeeRegistration.form.valid"
+            class="btn btn-info"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

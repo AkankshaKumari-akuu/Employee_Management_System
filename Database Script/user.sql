@@ -15,3 +15,5 @@ VALUES('ib123','bittu','kumar','jackbabu661@gmail.com',878956,'ib','abc');
  
 INSERT INTO "user"(userid,first,last,email,phone,password,address)
 VALUES('bittu','bittu','indian','bittu@gmail.com',878956,'bittu','abc');
+
+commit;

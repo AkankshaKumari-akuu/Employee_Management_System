@@ -46,16 +46,13 @@ public class EmployeeService {
 
 	
 
-	public Object updateEmployee(Employee employee) {
+	public Employee updateEmployee(Employee employee) {
 		Optional<Employee> optEmp = employeeRepo.findById(employee.getId());
 		if (optEmp.isPresent()) {
-			Employee updatedEmployee = employeeRepo.save(employee);
+		return	employeeRepo.save(employee);
 			//return "update completed";
-			
-			return updatedEmployee;
 		} else {
 			throw new EmployeeNotFound("Not present that employee");
-			
 		}
 	}
 

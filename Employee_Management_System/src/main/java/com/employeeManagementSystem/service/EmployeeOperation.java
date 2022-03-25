@@ -6,6 +6,7 @@ import java.util.List;
 public class EmployeeOperation {
 	
 	public List<Double> salaryOperation(double Bp) {
+		
 		Double DA=Bp*0.4;
 		Double HRA=Bp*0.3;
 		Double Gross=Bp+DA+HRA;
