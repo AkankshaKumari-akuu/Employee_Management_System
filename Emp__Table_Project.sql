@@ -10,11 +10,10 @@
 );
  
 INSERT INTO "user"(userid,first,last,email,phone,password,address)
-VALUES(ib123,bittu,kumar,jackbabu661@gmail.com,878956,ib,abc);
+VALUES('ib123','bittu','kumar','jackbabu661@gmail.com',878956,'ib','abc');
  
 INSERT INTO "user"(userid,first,last,email,phone,password,address)
-VALUES(bittu,bittu,indian,bittu@gmail.com,878956,bittu,abc);
-
+VALUES('bittu','bittu','indian','bittu@gmail.com',878956,'bittu','abc');
 create table Employee(ID  NUMBER(10)  NOT NULL  ,       
 BASIC_PAY                FLOAT(126)  ,       
 DA                       FLOAT(126),         
