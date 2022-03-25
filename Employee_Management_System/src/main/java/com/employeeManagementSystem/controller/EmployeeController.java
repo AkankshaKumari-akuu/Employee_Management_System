@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +19,7 @@ import com.employeeManagementSystem.service.EmployeeOperation;
 import com.employeeManagementSystem.service.EmployeeService;
 import com.employeeManagementSystem.service.UserService;
 
-/*
- * ib
- */
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeController {
@@ -50,7 +49,7 @@ public class EmployeeController {
 
 	// Search Employee By IB Id
 	// Done Angular checked
-	@GetMapping(value = "/employee/{id}", produces = "application/json")
+	@GetMapping(path = "/employee/{id}", produces = "application/json")
 	public ArrayList<Employee> getEmployee(@PathVariable int id) {
 		System.out.println(id);
 		ArrayList<Employee> emp = new ArrayList<Employee>();
@@ -58,7 +57,7 @@ public class EmployeeController {
 		return emp;
 	}
 	
-	@GetMapping(value = "/edit/employee/{id}", produces = "application/json")
+	@GetMapping(path = "/edit/employee/{id}", produces = "application/json")
 	public Employee getEmployeeEdit(@PathVariable int id) {
 		System.out.println(id);
 	return	employeeService.getEmployeeById(id);
@@ -66,13 +65,13 @@ public class EmployeeController {
 	}
 
 	// Delete Employee
-	@GetMapping(value = "/deleteEmployee/{id}")
+	@DeleteMapping(path = "/deleteEmployee/{id}")
 	public void deleteEmployee(@PathVariable int id) {
 		Employee emp = employeeService.getEmployeeById(id);
 		employeeService.deleteEmployee(emp);
 	}
 
-	@PostMapping(value = "/editEmployee", produces = "application/json", consumes = "application/json")
+	@PostMapping(path = "/editEmployee", produces = "application/json", consumes = "application/json")
 	public Employee editContact(@RequestBody Employee employee) {
 		// employeeService.getEmployeeById(employee.getId());
 		Double bp = employee.getBasicpay();
