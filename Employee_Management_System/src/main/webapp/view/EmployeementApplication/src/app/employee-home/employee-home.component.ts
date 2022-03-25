@@ -24,17 +24,22 @@ employee:Employee;
  employeeidstatus: boolean = false;
   employeeid() {
     this.employeeidstatus = true;
+    this.employeeiddeletestatus = false;
   }
   showEmpById(formdata: NgForm) {
     this.formData = formdata.value;
     this.searchtype = 'byId';
     this.router.navigate([`employeeById/${this.employee.id}/${this.searchtype}`]);
   }
-
+  employeeiddeletestatus: boolean = false;
+  employeedeletebyid() {
+    this.employeeiddeletestatus = true;
+    this.employeeidstatus = false;
+  }
   deleteEmpById(formdata: NgForm) {
     this.formData = formdata.value;
     this.searchtype = 'delId';
-    this.router.navigate([`employeeById/${this.employee.id}/${this.searchtype}`]);
+    this.router.navigate([`allEmployee/${this.employee.id}/${this.searchtype}`]);
   }
 
 
