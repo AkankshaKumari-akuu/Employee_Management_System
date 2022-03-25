@@ -1,138 +1,52 @@
 <div class="html">
-  <div class="body" align="center">
-    <h4 align="justify" style="color: white">
-      <br />
-       
-      
-      <a style="color: green" href="/userLogin"><button>Back</button> </a>
-    </h4>
-    <h1 style="color: red">User Registration</h1>
-    <br />
-    <br />
-    <br /><br />
-    <br />
-    <br />
-    <form (ngSubmit)="onSubmit()" #UserRegistration="ngForm">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #EmployeeRegistration="ngForm">
       <div class="form-group">
-        <label for="userid" style="color:blue">userid</label>
-        
+        <label for="employeename">Employee name</label>
         <input
           type="text"
-          [(ngModel)]="user.userid"
+          [(ngModel)]="employee.name"
           class="form-control"
-          id="userid"
-          name="userid"
-          placeholder="Enter your userid"
+          id="employeename"
+          name="employeename"
+          placeholder="Enter your name"
           required
           #userid="ngModel"
         />
-        <br />
-    <br />
       </div>
       <div class="form-group">
-        <label for="fname" style="color:blue">fname</label>
+        <label for="doj">date Of Joining</label>
         <input
           type="text"
-          [(ngModel)]="user.first"
+          [(ngModel)]="employee.dateOfJoining"
           class="form-control1"
-          id="fname"
-          name="fname"
-          placeholder="Enter your fname"
+          id="doj"
+          name="doj"
+          placeholder="date of joining"
           required
-          #fname="ngModel"
+          #doj="ngModel"
         />
       </div>
-      <div [hidden]="!fname.pristine" class="alert alert-danger">
-        fname is required
-      </div>
-      <div class="form-control2">
-        <label for="lname" style="color:blue">lname</label>
+
+      <div class="form-group">
+        <label for="basicpay">Basicpay</label>
         <input
           type="text"
-          [(ngModel)]="user.last"
-          class="form-control"
-          id="lname"
-          name="lname"
-          placeholder="Enter your lname"
+          [(ngModel)]="employee.basicpay"
+          class="form-control2"
+          id="basicpay"
+          name="basicpay"
+          placeholder="Enter your basicpay"
           required
-          #lname="ngModel"
+          #basicpay="ngModel"
         />
       </div>
-      <div [hidden]="!lname.pristine" class="alert alert-danger">
-        lname is required
-      </div>
-      <div class="form-control3">
-        <label for="email" style="color:blue">Email</label>
-        <input
-          type="text"
-          [(ngModel)]="user.email"
-          class="form-control"
-          id="email"
-          name="email"
-          placeholder="Enter your email address"
-          required
-          #email="ngModel"
-        />
-        <div [hidden]="!email.pristine" class="alert alert-danger">
-          Email is required
-        </div>
-      </div>
-      <div class="form-control4">
-        <label for="phone number" style="color:blue">Phoneno</label>
-        <input
-          type="text"
-          [(ngModel)]="user.phone"
-          class="form-control"
-          id="phone"
-          name="phone"
-          placeholder="Enter your phone number"
-          required
-          #phone="ngModel"
-        />
-      </div>
-      <div class="form-control4">
-        <label for="password" style="color:blue">Password</label>
-        <input
-          type="text"
-          [(ngModel)]="user.password"
-          class="form-control"
-          id="password"
-          name="password"
-          placeholder="Enter password"
-          required
-          #password="ngModel"
-        />
-      </div>
-      <div class="form-control5">
-        <label for="confirm password" style="color:blue">Confirm Password</label>
-        <input
-          type="text"
-          class="form-control"
-          id="confirm password"
-          name="confirm password"
-          placeholder="Enter confirm password"
-          required
-          #confirm
-          password="ngModel"
-        />
-      </div>
-      <div class="form-control6" style="color:blue">
-        <label for="address">Address</label>
-        <input
-          type="text"
-          [(ngModel)]="user.address"
-          class="form-control"
-          id="address"
-          name="address"
-          placeholder="Enter your address"
-          required
-          #address="ngModel"
-        />
-      </div>
+
       <button
-        type="submit"
-        [disabled]="!UserRegistration.form.valid"
-        class="btn btn-info">
+        type="Add Employee"
+        [disabled]="!EmployeeRegistration.form.valid"
+        class="btn btn-info"
+      >
         Submit
       </button>
     </form>

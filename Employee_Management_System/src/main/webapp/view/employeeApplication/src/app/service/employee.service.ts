@@ -54,7 +54,7 @@ export class EmployeeService {
 
   public deleteById( id:Number): Observable<Employee[]>{
     console.log("intheservice");
-    return this.http.get<Employee[]>(this.deleteEmployeeByIdUrl+id);
+    return this.http.delete<Employee[]>(this.deleteEmployeeByIdUrl+id);
 }
 
 public saveEmployee(employee:Employee){
