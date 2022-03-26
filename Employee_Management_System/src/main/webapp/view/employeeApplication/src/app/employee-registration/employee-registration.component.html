@@ -2,8 +2,8 @@
   <div style="color: white" align="right">
     <h4 align="right">
       <br />
-      <a style="color: green" href="/userLogin"><button>Log out</button> </a>
-      <a style="color: green" href="/employeehome"><button>Home</button> </a>
+      <a style="color: green" href="/employeehome"><button class="btn-float-left">Home</button> </a>
+      <a style="color: green" href="/userLogin"><button class="btn-float-right">SignOff</button> </a>
     </h4>
   </div>
   <div align="center">
@@ -49,7 +49,7 @@
           #basicpay="ngModel"
         />
       </div>
-
+      <br>
       <button
         type="Add Employee"
         [disabled]="!EmployeeRegistration.form.valid"

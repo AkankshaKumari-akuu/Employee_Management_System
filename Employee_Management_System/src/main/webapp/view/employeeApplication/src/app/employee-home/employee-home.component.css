@@ -37,3 +37,9 @@
   background-color: #42f4ce;
   color: red;
 }
+.message
+{
+  color: rgb(226, 130, 3);
+  background-color: aliceblue;
+  width: fit-content;
+}
