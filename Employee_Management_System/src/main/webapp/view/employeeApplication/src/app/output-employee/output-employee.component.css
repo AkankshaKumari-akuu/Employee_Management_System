@@ -1,21 +1,69 @@
 h1 {
-  color: #0ae312;
+  color: #0ae3d8;
 }
 
+.btn-float-left
+{
+	padding: 5px;
+	margin-left: 20px;
+	margin-top: 10px;
+	border-radius: 8px;
+	float: left;	
+}
+.btn-float-right{
+	padding: 5px;
+	margin-top: 10px;
+	margin-right: 20px;
+	border-radius: 8px;
+	float: right;
+}
+.btn-float-left:hover
+{
+  background-color: cadetblue;
+}
+
+.btn-float-right:hover
+{
+  background-color: rgb(216, 91, 8);
+}
 table,
 th,
 td {
-  width: 40%;
-  background-color: white;
+  width: auto;
+  background-color: rgb(62, 214, 214);
   border: 1px solid black;
 }
 
 .body {
   background-color: white;
-  background-image: url("https://www.hrfuture.net/wp-content/uploads/elementor/thumbs/Depositphotos_208343728_xl-2015-ok529kg00xom63s5nzsk7x7t8nhap29ds8y4np6v7s.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("https://www.hrfuture.net/wp-content/uploads/elementor/thumbs/Depositphotos_208343728_xl-2015-ok529kg00xom63s5nzsk7x7t8nhap29ds8y4np6v7s.jpg");
   background-size: cover;
-  height: 750px;
+  height: 550px;
   background-repeat: no-repeat;
   background-size: 100%;
 
+}
+.html
+{
+  
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  opacity: 0.9;
+  width: fit-content;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 450px;
+  padding: 10px;
+}
+label
+{
+  padding: 10px;
+}
+input
+{
+  margin: 10px;
+  padding: 5px;
+}
+button[type=submit]
+{
+  margin-left: 45%;
 }
