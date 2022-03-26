@@ -1,17 +1,20 @@
 html,
 .body {
-  margin: 50;
-  padding: 50;
+  margin: 0;
+  padding: 0;
+  
 }
 
 .body {
-  background-color: rgb(85, 74, 74);
-  background-image: url("https://miro.medium.com/max/1400/1*Bhy1_Q8Zo8Y9kTwslMP-9A.jpeg");
+  background-color: rgb(248, 240, 240);
+  background-image: url("https://wallpaperaccess.com/full/4321941.jpg");
+width: 1800px;
+height: 800px;
 }
 
 .form-control {
   background-color: white;
-  border: 2px solid #42f4ce;
+  border: 2px solid #f7f7f7;
   border-radius: 5px;
   color: black;
   padding: 10px;
@@ -19,13 +22,13 @@ html,
 }
 
 .form-control:hover {
-  background-color: #42f4ce;
+  background-color: #fafafa;
   color: red;
 }
 
 .form-control1 {
   background-color: white;
-  border: 2px solid #b0f0f2;
+  border: 2px solid #f8f8f8;
   border: radius 5px;
   color: black;
   padding: 10px;
@@ -33,13 +36,13 @@ html,
 }
 
 .form-control1:hover {
-  background-color: #42f4ce;
+  background-color: #f3f5f4;
   color: red;
 }
 
 .form-control2 {
   background-color: white;
-  border: 2px solid #ead2f2;
+  border: 2px solid #f5f5f5;
   border-radius: 5px;
   color: black;
   padding: 10px;
