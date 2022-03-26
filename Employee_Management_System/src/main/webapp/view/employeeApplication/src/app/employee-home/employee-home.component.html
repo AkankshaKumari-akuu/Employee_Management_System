@@ -2,127 +2,99 @@
   <div style="color: white" align="right">
     <h4 align="right">
       <br />
-      <a style="color: green" href="/userLogin"><button>Log out</button> </a>
+      <a  href="/userLogin"><button class="loginBtn"><b>SignOff</b></button> </a>
     </h4>
   </div>
-  <div align="center">
-    <h1 style="color: red">EMPLOYEE MANAGEMENT SYSTEM</h1>
-    <br />
-    <br />
-    <br /><br />
-    <br />
-    <br />
-    <input
-      class="anchor1"
-      type="button"
-      value="Find All Employee "
-      (click)="allemployee()"
-    />
-    <br />
-    <br />
-    <input
-      class="anchor2"
-      type="button"
-      value="Find Employee by Id"
-      (click)="employeeid()"
-    />
-    <br />
-    <br />
+<div class="container" align="center">
+        <!-- Shows all employee list -->
+        <input
+          class="anchor2"
+          type="button"
+          value="Find All Employee "
+          (click)="allemployee()"
+        />
+        <br>
+        <br>
+        <!-- Shows employee with particular id -->
+        <input
+          class="anchor2"
+          type="button"
+          value="Find Employee by Id"
+          (click)="employeeid()"
+        />
+        <br>
+        <div *ngIf="employeeidstatus" id="au">
+          <form #form2="ngForm" (ngSubmit)="showEmpById(form2)">
+            <label for="id"></label>
 
-    <div *ngIf="employeeidstatus" id="au">
-      <form #form2="ngForm" (ngSubmit)="showEmpById(form2)">
-        <label for="id"></label>
+            <input
+              name="id"
+              required
+              [(ngModel)]="employee.id"
+              type="number"
+              id="id "
+            />
+
+            <input style="margin-left: 10px;" class="button" type="Submit" value="Search" />
+          </form>
+        </div>
+        <br>
+        <!--  Delete Employee-->
 
         <input
-          name="id"
-          required
-          [(ngModel)]="employee.id"
-          type="number"
-          id="id "
+           class="anchor2"
+          type="button"
+          value="Delete Employee by Id"
+          (click)="employeedeletebyid()"
         />
+        
+        <div *ngIf="employeeiddeletestatus" id="au">
+          <form #form3="ngForm" (ngSubmit)="deleteEmpById(form3)">
+            <label for="id"></label>
 
-        <input class="button" type="Submit" value="Search" />
-      </form>
-    </div>
-    <br />
-    <br />
-    <!--  Delete Employee-->
+            <input
+              name="id"
+              required
+              [(ngModel)]="employee.id"
+              type="number"
+              id="id "
+            />
 
-    <input
-      class="anchor1"
-      type="button"
-      value="Delete Employee by Id"
-      (click)="employeedeletebyid()"
-    />
-    <br /><br />
+            <input style="margin-left: 10px;" class="button" type="Submit" value="Delete" />
+          </form>
+        </div>
+        <br>
+        <div *ngIf="showstatus">Employee id {{ id }} Been Successfully Deleted</div>
+        
+        <br>
+        <!-- Add Employee-->
+        <a routerLink="/employeeRegistration">
+          <button class="anchor2">Create New Employee</button></a
+        >
 
-    <div *ngIf="employeeiddeletestatus" id="au">
-      <form #form3="ngForm" (ngSubmit)="deleteEmpById(form3)">
-        <label for="id"></label>
-
+        <br>
+        <br>
+        <!-- Edit Employee By Id -->
         <input
-          name="id"
-          required
-          [(ngModel)]="employee.id"
-          type="number"
-          id="id "
-        />
+          class="anchor2"
+          type="button"
+          value="Edit Employee by Id"
+          (click)="employeeedit()"
+        />  
+        <div *ngIf="employeeEditstatus" id="au">
+          <form #form4="ngForm" (ngSubmit)="editEmpById(form4)">
+            <label for="id"></label>
 
-        <input class="button" type="Submit" value="Delete" />
-      </form>
-    </div>
-    <div *ngIf="showstatus">Employee id {{ id }} Been Successfully Deleted</div>
-    <br />
-    <br />
+            <input
+              name="id"
+              required
+              [(ngModel)]="employee.id"
+              type="number"
+              id="id "
+            />
 
-    <!-- Add Employee-->
-    <a routerLink="/employeeRegistration">
-      <button class="anchor2">Create New Employee</button></a
-    >
-    <br />
-    <br />
-    <input
-      class="anchor2"
-      type="button"
-      value="Edit Employee by Id"
-      (click)="employeeedit()"
-    />
-    <br />
-    <br />
-
-    <div *ngIf="employeeEditstatus" id="au">
-      <form #form4="ngForm" (ngSubmit)="editEmpById(form4)">
-        <label for="id"></label>
-
-        <input
-          name="id"
-          required
-          [(ngModel)]="employee.id"
-          type="number"
-          id="id "
-        />
-
-        <input class="button" type="Submit" value="Edit" />
-      </form>
-      <!--
-    <input
-      class="anchor3"
-      type="button"
-      value="Search By Category"
-      (click)="bookcatstatus()"
-    />
-    <br />
-    <br />
-    <div *ngIf="catstatus" id="cat">
-      <form #form3="ngForm" (ngSubmit)="showBookByCategory(form3)">
-        <label for="category"></label>
-        <input name="category" required ngModel type="text" id="category" />
-        <input class="button" type="Submit" value="Search" />
-      </form>
-    </div>
-    <br />
-    <br />
-  </div>-->
-    </div>
-  </div>
+            <input style="margin-left: 10px;" class="button" type="Submit" value="Edit" />
+          </form>
+        </div>
+</div>
 </div>
