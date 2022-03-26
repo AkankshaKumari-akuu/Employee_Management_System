@@ -29,26 +29,25 @@ public class EmployeeController {
 	@Autowired
 	private UserService userservice;
 
-	// DoneibAngular checked
+	// All User List
 	@GetMapping(path = "/allUserList", produces = "application/json")
 	public ArrayList<User> getAllUser() {
 		return userservice.getAllUser();
 	}
 
-	// Done Angular checked
+	// Add New User
 	@PostMapping(path = "/registerUser", consumes = "application/json")
 	public void addUser(@RequestBody User user) {
 		userservice.saveUser(user);
 	}
 
-	// doneIB Angular checked
+	// All Employee List
 	@GetMapping(path = "/allEmployeeList", produces = "application/json")
 	public ArrayList<Employee> getAllEmployee() {
 		return employeeService.getAllEmployee();
 	}
 
 	// Search Employee By IB Id
-	// Done Angular checked
 	@GetMapping(path = "/employee/{id}", produces = "application/json")
 	public ArrayList<Employee> getEmployee(@PathVariable int id) {
 		System.out.println(id);
@@ -57,6 +56,7 @@ public class EmployeeController {
 		return emp;
 	}
 	
+     // Edit Employee By Id
 	@GetMapping(path = "/edit/employee/{id}", produces = "application/json")
 	public Employee getEmployeeEdit(@PathVariable int id) {
 		System.out.println(id);
