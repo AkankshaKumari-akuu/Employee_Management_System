@@ -11,12 +11,21 @@ import { EmployeeService } from '../service/employee.service';
 })
 export class UserRegistrationComponent implements OnInit {
    user : User;
+   confirmpassword :String= "";
+   missmatch:String="";
   constructor(private route:ActivatedRoute,private router: Router,private employeeService:EmployeeService) {
     this.user= new User();
    }
 
    onSubmit() {
-    this.employeeService.registerUser(this.user).subscribe(data => {this.gotoLogInPage()});
+     if(this.user.password==this.confirmpassword){
+      this.employeeService.registerUser(this.user).subscribe(data => {this.gotoLogInPage()});
+     }
+     else{
+       this.missmatch="Password mismatched";
+     }
+    
+
   }
 gotoLogInPage(){
   this.router.navigate(['/userLogin']);

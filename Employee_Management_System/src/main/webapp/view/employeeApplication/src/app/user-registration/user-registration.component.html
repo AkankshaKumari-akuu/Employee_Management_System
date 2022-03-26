@@ -61,30 +61,38 @@
           id="email"
           name="email"
           placeholder="Enter your email address"
-          required
+          required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           #email="ngModel"
         />
         <div [hidden]="!email.pristine" class="alert-danger">
           Email is required
         </div>
+        <div *ngIf="email.invalid &&(email.dirty|| email.touched)" class="alert">
+          <div style="color: rgb(241, 101, 101);" *ngIf="email.errors?.['required']"> <b>Email is required</b></div>
+        <div style="color: rgb(241, 102, 102);" *ngIf="email.errors?.['pattern']"><b>Enter the valid Email</b></div>
+      </div>
       </div>
       <div class="form-control4">
-        <label for="phone number" style="color:blue">Phone Number</label>
+        <label for="phone" style="color:blue">Phone Number</label>
         <input
-          type="text"
+          type="number"
           [(ngModel)]="user.phone"
           class="form-control"
           id="phone"
           name="phone"
           placeholder="Enter your phone number"
-          required
+          required pattern="^((\\+91-?)|0)?[0-9]{10}$"
           #phone="ngModel"
         />
+      </div>
+      <div *ngIf="phone.invalid &&(phone.dirty|| phone.touched)" class="alert">
+        <div style="color: rgb(228, 68, 68);" *ngIf="phone.errors?.['required']"> <b>Mobile number is required</b></div>
+        <div style="color: rgb(224, 80, 80);" *ngIf="phone.errors?.['pattern']"><b>Enter the only 10 digit Number required</b></div>
       </div>
       <div class="form-control4">
         <label for="password" style="color:blue">Password</label>
         <input
-          type="text"
+          type="password"
           [(ngModel)]="user.password"
           class="form-control"
           id="password"
@@ -97,7 +105,8 @@
       <div class="form-control5">
         <label for="confirm password" style="color:blue">Confirm Password</label>
         <input
-          type="text"
+          type="password"
+          [(ngModel)]="confirmpassword"
           class="form-control"
           id="confirm password"
           name="confirm password"
@@ -105,8 +114,11 @@
           required
           #confirm
           password="ngModel"
+          
         >
+        
       </div>
+      <div style="background-color: #fa1515" class="err">{{missmatch}}</div>
       <div class="form-control6" style="color:blue">
         <label for="address">Address</label>
         <input
