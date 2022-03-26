@@ -11,9 +11,9 @@ create table "user"(
 );
  
 INSERT INTO "user"(userid,first,last,email,phone,password,address)
-VALUES('ib123','bittu','kumar','jackbabu661@gmail.com',878956,'ib','abc');
+VALUES('Raja','Raja','kumar','raja661@gmail.com',878956,'Ak','abc');
  
 INSERT INTO "user"(userid,first,last,email,phone,password,address)
-VALUES('bittu','bittu','indian','bittu@gmail.com',878956,'bittu','abc');
+VALUES('Akanksha','Akanksha','Choudhary','Ac@gmail.com',878956,'Akanksha','abc');
 
 commit;
