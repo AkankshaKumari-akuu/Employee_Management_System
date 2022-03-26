@@ -1,14 +1,12 @@
 <div class="body">
-  <div align="center">
-    <h1 style="color: white">EMPLOYEE MANAGEMENT SYSTEM</h1>
-    <br />
-    <br />
+  <div class= "container" >
+    
     <div class="card">
       <h2>LOGIN</h2>
       <br />
       <br />
       <form #signupForm="ngForm" (ngSubmit)="userLogin(signupForm)">
-        <label style="font-size: 30px" for="username">User Name: </label>
+        <label style="font-size: 30px" for="username">Username: </label>
         <input
           class="anchor1"
           type="text"
@@ -24,7 +22,7 @@
         <input
           class="anchor2"
           placeholder="Password"
-          type="text"
+          type="password"
           name="password"
           id="password"
           ngModel
@@ -36,7 +34,7 @@
         <br />
       </form>
       <a routerLink="/userRegistration">
-        <button class="anchor1">Create New Account</button></a
+        <button class="anchor3">Create New Account</button></a
       >
       <div *ngIf="status" style="color: rgb(196, 243, 26)">
         <h3>Welcome!! {{ name }} You Are Successfully Logged In</h3>

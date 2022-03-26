@@ -8,8 +8,10 @@ html,
 .body {
   background-color: rgb(248, 240, 240);
   background-image: url("https://wallpaperaccess.com/full/4321941.jpg");
-width: 1800px;
-height: 800px;
+width: 1300px;
+height: 1000px;
+background-size: 100%;
+
 }
 
 .form-control {

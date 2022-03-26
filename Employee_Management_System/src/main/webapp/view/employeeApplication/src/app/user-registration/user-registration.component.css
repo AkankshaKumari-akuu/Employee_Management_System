@@ -1,82 +1,69 @@
-html,
 .body {
-  margin: 0;
-  padding: 0;
+  background-image: url(https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/743/cached.offlinehbpl.hbpl.co.uk/news/OMC/WFH-2019092007545320.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
-
-.body {
-  background-color: rgb(85, 74, 74);
-  background-image: url("https://miro.medium.com/max/1400/1*Bhy1_Q8Zo8Y9kTwslMP-9A.jpeg");
-}
-
-.form-control {
-   
-  
-  color: black;
-  
-  text-decoration: none;
-}
-
-.form-control:hover {
-   
+.alert-danger
+{
   color: red;
 }
-
-.form-control1 {
-   
-  
-  color: black;
-   
-  text-decoration: none;
+form
+{
+  margin-right: 10px;
 }
-
-.form-control1:hover {
-   
-  color: red;
-}
-
-.form-control2 {
-   
-  
-  color: black;
-  padding: 10px;
-  text-decoration: none;
-}
-
- 
- 
-  
-  .form-control3 {
+.container 
+{
+    max-width: 350px;
+    margin-left: 800px ;
     
-     
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-  }
+}
+.container
+{
+    background-color: transparent;
+}
+
+* {
+    box-sizing: border-box;
+}
+
    
-  
-  .form-control4{
-     
-     
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-  }
-   
-  
-  .form-control5 {
-     
-      
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-  }
-   
-  
-  .form-control6 {
-    
-     
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-  }
+input[type=text],
+input[type=password],
+input[type=password],
+input[type=number],
+input[type=phone] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 20px 0;
+    display: inline-block;
+    border: none;
+    background: #cbcbcb;
+    font-family: cursive;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=number]:focus,
+input[type=number]:focus {
+    background-color: #fff;
+    outline: black 2px double;
+}
+/* Set a style for all buttons */
+
+button 
+{
+    background-color: rgb(8, 7, 4);
+    transition-duration: 0.4s;
+    color: white;
+    padding: 10px 10px;
+    margin-right: 10px;
+    border-color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover 
+{
+    background-color: rgb(40, 151, 185);
+}

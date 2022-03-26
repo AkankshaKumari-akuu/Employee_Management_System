@@ -1,20 +1,11 @@
 <div class="html">
-  <div class="body" align="center">
-    <h4 align="justify" style="color: white">
-      <br />
-       
-      
-      <a style="color: green" href="/userLogin"><button>Back</button> </a>
-    </h4>
+  <div class="body">
+    
+    <div class="container" >
     <h1 style="color: red">User Registration</h1>
-    <br />
-    <br />
-    <br /><br />
-    <br />
-    <br />
     <form (ngSubmit)="onSubmit()" #UserRegistration="ngForm">
       <div class="form-group">
-        <label for="userid" style="color:blue">userid</label>
+        <label for="userid" style="color:blue">UserId</label>
         
         <input
           type="text"
@@ -30,7 +21,7 @@
     <br />
       </div>
       <div class="form-group">
-        <label for="fname" style="color:blue">fname</label>
+        <label for="fname" style="color:blue">First Name</label>
         <input
           type="text"
           [(ngModel)]="user.first"
@@ -40,13 +31,13 @@
           placeholder="Enter your fname"
           required
           #fname="ngModel"
-        />
+        >
       </div>
-      <div [hidden]="!fname.pristine" class="alert alert-danger">
-        fname is required
+      <div [hidden]="!fname.pristine" class="alert-danger">
+        firstname is required
       </div>
       <div class="form-control2">
-        <label for="lname" style="color:blue">lname</label>
+        <label for="lname" style="color:blue">Last Name</label>
         <input
           type="text"
           [(ngModel)]="user.last"
@@ -56,10 +47,10 @@
           placeholder="Enter your lname"
           required
           #lname="ngModel"
-        />
+        >
       </div>
-      <div [hidden]="!lname.pristine" class="alert alert-danger">
-        lname is required
+      <div [hidden]="!lname.pristine" class="alert-danger">
+        lastname is required
       </div>
       <div class="form-control3">
         <label for="email" style="color:blue">Email</label>
@@ -73,12 +64,12 @@
           required
           #email="ngModel"
         />
-        <div [hidden]="!email.pristine" class="alert alert-danger">
+        <div [hidden]="!email.pristine" class="alert-danger">
           Email is required
         </div>
       </div>
       <div class="form-control4">
-        <label for="phone number" style="color:blue">Phoneno</label>
+        <label for="phone number" style="color:blue">Phone Number</label>
         <input
           type="text"
           [(ngModel)]="user.phone"
@@ -114,7 +105,7 @@
           required
           #confirm
           password="ngModel"
-        />
+        >
       </div>
       <div class="form-control6" style="color:blue">
         <label for="address">Address</label>
@@ -135,6 +126,10 @@
         class="btn btn-info">
         Submit
       </button>
+      <button (click)="gotoLogInPage()">
+        Login
+      </button>
     </form>
+  </div>
   </div>
 </div>
