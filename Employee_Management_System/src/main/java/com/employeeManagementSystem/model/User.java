@@ -17,21 +17,21 @@ public class User {
     @Id
     String userid;
 
-    @Column(name = "First")
+    @Column(name = "first")
     String first;
 
-    @Column(name = "Last")
+    @Column(name = "last")
     String last;
 
-    @Column(name = "Email")
+    @Column(name = "email")
     String email;
 
-    @Column(name = "Phone")
+    @Column(name = "phone")
     Long phone;
 
-    @Column(name = "Password")
+    @Column(name = "password")
     String password;
-    @Column(name = "Address")
+    @Column(name = "address")
     String address;
     
   
