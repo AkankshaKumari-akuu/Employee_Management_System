@@ -87,7 +87,7 @@
       </div>
       <div *ngIf="phone.invalid &&(phone.dirty|| phone.touched)" class="alert">
         <div style="color: rgb(228, 68, 68);" *ngIf="phone.errors?.['required']"> <b>Mobile number is required</b></div>
-        <div style="color: rgb(224, 80, 80);" *ngIf="phone.errors?.['pattern']"><b>Enter the only 10 digit Number required</b></div>
+        <div style="color: rgb(224, 80, 80);" *ngIf="phone.errors?.['pattern']"><b>Enter the valid Number</b></div>
       </div>
       <div class="form-control4">
         <label for="password" style="color:blue">Password</label>

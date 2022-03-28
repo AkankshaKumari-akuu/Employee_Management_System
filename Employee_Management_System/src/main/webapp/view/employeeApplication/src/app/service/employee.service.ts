@@ -13,10 +13,10 @@ export class EmployeeService {
   registerEmployee(user: User) {
       throw new Error('Method not implemented.');
   }
-  allemplink:string;
   AllUserList: string;
   validateUserUrl: string;
   registerUserUrl:string;
+  allemplink:string;
   findEmployeeByIdUrl: string;
   deleteEmployeeByIdUrl: string;
   editEmployeeByIdUrl: string;
@@ -25,8 +25,8 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { 
     this.AllUserList='http://localhost:9091/allUserList';
-    this.allemplink='http://localhost:9091/allEmployeeList';
     this.registerUserUrl='http://localhost:9091/registerUser';
+    this.allemplink='http://localhost:9091/allEmployeeList';
     this.findEmployeeByIdUrl='http://localhost:9091/employee/';
     this.deleteEmployeeByIdUrl='http://localhost:9091/deleteEmployee/';
     this.editEmployeeByIdUrl='http://localhost:9091/editEmployee';

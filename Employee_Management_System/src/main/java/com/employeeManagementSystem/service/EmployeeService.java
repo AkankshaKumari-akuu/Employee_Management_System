@@ -18,12 +18,16 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeRepo employeeRepo;
 
+     	/* AllEmployee List*/
+
+
 	public ArrayList<Employee> getAllEmployee() {
 		ArrayList<Employee> employees = (ArrayList<Employee>) employeeRepo.findAll();
 		return employees;
 	}
 	
-	
+	     	/* GetEmployeeById*/
+
 	public Employee getEmployeeById(int id) {
 		Optional<Employee> optEmp = employeeRepo.findById(id);
 		if (optEmp.isPresent()) {
@@ -33,6 +37,10 @@ public class EmployeeService {
 			return null;
 		}
 	}
+ 
+
+     	/* Add Employee*/
+
 
 	public Employee addEmployee(Employee employee) {
 		Optional<Employee> optEmp = employeeRepo.findById(employee.getId());
@@ -44,7 +52,8 @@ public class EmployeeService {
 		}
 	}
 
-	
+	     	/* Update Employee*/
+
 
 	public Employee updateEmployee(Employee employee) {
 		Optional<Employee> optEmp = employeeRepo.findById(employee.getId());
@@ -55,6 +64,8 @@ public class EmployeeService {
 			throw new EmployeeNotFound("Not present that employee");
 		}
 	}
+
+	     	/* Delete Employee*/
 
 	public String deleteEmployee(Employee employee) {
 		Optional<Employee> optEmp = employeeRepo.findById(employee.getId());

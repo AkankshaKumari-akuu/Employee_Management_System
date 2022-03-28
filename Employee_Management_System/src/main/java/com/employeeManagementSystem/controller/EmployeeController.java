@@ -29,25 +29,27 @@ public class EmployeeController {
 	@Autowired
 	private UserService userservice;
 
-	// All User List
+
+	     	/* All User List*/
+
 	@GetMapping(path = "/allUserList", produces = "application/json")
 	public ArrayList<User> getAllUser() {
 		return userservice.getAllUser();
 	}
 
-	// Add New User
+	/*Add New User*/
 	@PostMapping(path = "/registerUser", consumes = "application/json")
 	public void addUser(@RequestBody User user) {
 		userservice.saveUser(user);
 	}
 
-	// All Employee List
+	/*All Employee List*/
 	@GetMapping(path = "/allEmployeeList", produces = "application/json")
 	public ArrayList<Employee> getAllEmployee() {
 		return employeeService.getAllEmployee();
 	}
 
-	// Search Employee By IB Id
+	/*Search Employee By IB Id*/
 	@GetMapping(path = "/employee/{id}", produces = "application/json")
 	public ArrayList<Employee> getEmployee(@PathVariable int id) {
 		System.out.println(id);
@@ -64,7 +66,7 @@ public class EmployeeController {
 		
 	}
 
-	// Delete Employee
+	/* Delete Employee*/
 	@DeleteMapping(path = "/deleteEmployee/{id}")
 	public void deleteEmployee(@PathVariable int id) {
 		Employee emp = employeeService.getEmployeeById(id);
@@ -83,7 +85,7 @@ public class EmployeeController {
 		return (Employee) employeeService.updateEmployee(emp);
 	}
 
-	// SaveEmployee
+	/* SaveEmployee*/
 	@PostMapping(path = "/saveEmployee", consumes = "application/json", produces = "application/json")
 	public Employee addEmployee(@RequestBody Employee employee) {
 		Double bp = employee.getBasicpay();

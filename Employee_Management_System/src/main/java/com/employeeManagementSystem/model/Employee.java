@@ -7,8 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * Employee Entity/Model Class With Annotation 
+ * To Define The Table Structure Of Database 
+ * using Relational Model
+ */
+
 @Entity
 @Table(name = "Employee")
+
+
 public class Employee {
 
 	@Id
@@ -22,7 +30,7 @@ public class Employee {
 	@Column(name = "DateOfJoining")
 	private String dateOfJoining;
 
-	@Column(name = "BasicPay")
+	@Column(name = "Basic_Pay")
 	private double basicpay;
 
 	@Column(name = "DA")

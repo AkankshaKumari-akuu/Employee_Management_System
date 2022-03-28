@@ -1,6 +1,8 @@
 package com.employeeManagementSystem.exception;
 
-
+/*
+ *DuplicateValueException Exception Class Will be Thrown when dublicate employee is not found in database
+ */
 
 public class DuplicateValueException extends RuntimeException{
 	

@@ -11,9 +11,9 @@ const routes: Routes = [
  
 {path: '', pathMatch:"full", redirectTo:"userLogin"},
 {path:'employeehome', component: EmployeeHomeComponent},
-{path:'allEmployee/:searchtype', component: OutputAllEmpComponent},
-{path:'userRegistration', component: UserRegistrationComponent},
 {path:'userLogin', component: UserLoginComponent},
+{path:'userRegistration', component: UserRegistrationComponent},
+{path:'allEmployee/:searchtype', component: OutputAllEmpComponent},
 {path:'employeeById/:id/:searchtype', component: OutputAllEmpComponent},
 {path:'deleteById/:id/:searchtype', component: EmployeeHomeComponent},
 {path:'employeeRegistration', component: EmployeeRegistrationComponent},

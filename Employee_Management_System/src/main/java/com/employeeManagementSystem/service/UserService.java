@@ -14,9 +14,15 @@ public class UserService {
 	@Autowired
 	UserRepo usempl;
 
+     /*save user*/
+
+
 	public void saveUser(User user) {
 		usempl.save(user);
 	}
+
+      /*get allUser*/
+
 
 	public ArrayList<User> getAllUser() {
 		return (ArrayList<User>) usempl.findAll();

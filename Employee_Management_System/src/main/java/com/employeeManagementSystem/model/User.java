@@ -1,21 +1,37 @@
 package com.employeeManagementSystem.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
- 
+ /*
+ * "user" Entity/Model Class With Annotation 
+ * To Define The Table Structure Of Database 
+ * using Relational Model
+ */
 
 @Entity
 @Table(name="\"user\"")
 public class User {
     @Id
     String userid;
+
+    @Column(name = "First")
     String first;
+
+    @Column(name = "Last")
     String last;
+
+    @Column(name = "Email")
     String email;
+
+    @Column(name = "Phone")
     Long phone;
+
+    @Column(name = "Password")
     String password;
+    @Column(name = "Address")
     String address;
     
   

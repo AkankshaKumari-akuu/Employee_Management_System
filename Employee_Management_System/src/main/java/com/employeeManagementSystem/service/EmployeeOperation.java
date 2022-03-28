@@ -3,6 +3,13 @@ package com.employeeManagementSystem.service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The EmployeeOperation java class
+ * It is perform to employee salary operation
+ *  
+ *
+ */
+
 public class EmployeeOperation {
 	
 	public List<Double> salaryOperation(double Bp) {
