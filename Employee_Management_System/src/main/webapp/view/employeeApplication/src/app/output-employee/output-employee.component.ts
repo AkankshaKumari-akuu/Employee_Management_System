@@ -33,7 +33,9 @@ export class OutputAllEmpComponent implements OnInit {
       this.employeeService.getAllemp().subscribe(x=>this.employeearr=x);
 	
     } 
-
+     else if(String(parameters['searchtype']).localeCompare('byId') == 0){
+			this.employeeService.findById(parameters['id']).subscribe(x=>this.employeearr=x);
+    }
      
     
     
