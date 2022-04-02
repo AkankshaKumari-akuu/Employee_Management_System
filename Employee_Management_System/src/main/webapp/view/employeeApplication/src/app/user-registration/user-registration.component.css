@@ -3,6 +3,7 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+
 .alert-danger
 {
   color: red;
@@ -66,4 +67,29 @@ button
 button:hover 
 {
     background-color: rgb(40, 151, 185);
+}
+.btn-float-left
+{
+	padding: 5px;
+	margin-left: 20px;
+	margin-top: 10px;
+	border-radius: 4px;
+	float: left;	
+}
+.btn-float-right{
+	padding: 5px;
+	margin-top: 10px;
+	margin-right: 20px;
+	border-radius: 8px;
+	float: right;
+}
+.btn-float-left:hover
+{
+  color: cadetblue;
+  background-color: black;
+}
+
+.btn-float-right:hover
+{
+  background-color: rgb(216, 91, 8);
 }

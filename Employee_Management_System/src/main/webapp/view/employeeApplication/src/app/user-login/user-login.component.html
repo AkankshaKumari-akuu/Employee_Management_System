@@ -1,6 +1,6 @@
 <div class="body">
   <div class= "container" >
-    
+    <h1>Employee Management System</h1>
     <div class="card">
       <h2>LOGIN</h2>
       <br />
@@ -33,9 +33,7 @@
         <input class="button" type="Submit" id="validate" value="Login" />
         <br />
       </form>
-      <a routerLink="/userRegistration">
-        <button class="anchor3">Create New Account</button></a
-      >
+       
       <div *ngIf="status" style="color: rgb(26, 138, 243)">
         <h3>Welcome!! {{ name }} You Are Successfully Logged In</h3>
       </div>

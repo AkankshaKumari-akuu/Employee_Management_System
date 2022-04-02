@@ -1,5 +1,12 @@
 <div class="html">
   <div class="body">
+    <div style="color: white" align="right">
+      <h4 align="justify" style="color: white">
+        <br />
+        <a style="color: green" href="/employeehome" style="float: left;"><button class="btn-float-left" style="border-radius: 15px;">Home</button> </a>
+        <a style="color: green" href="/userLogin" style="float: right;"><button class="btn-float-right" style="border-radius: 15px;">Logout</button> </a>
+      </h4>
+    </div>
     
     <div class="container" >
     <h1 style="color: red">User Registration</h1>
@@ -29,13 +36,17 @@
           id="fname"
           name="fname"
           placeholder="Enter your fname"
-          required
+          required pattern="[a-zA-Z][a-zA-Z ]+"
           #fname="ngModel"
         >
       </div>
       <div [hidden]="!fname.pristine" class="alert-danger">
         firstname is required
       </div>
+      <div *ngIf="fname.invalid &&(fname.dirty|| fname.touched)" class="alert">
+        <div style="color: rgb(241, 101, 101);" *ngIf="fname.errors?.['required']"> <b>fname is required</b></div>
+      <div style="color: rgb(241, 102, 102);" *ngIf="fname.errors?.['pattern']"><b>Enter the valid fname</b></div>
+    </div>
       <div class="form-control2">
         <label for="lname" style="color:blue">Last Name</label>
         <input
@@ -45,13 +56,17 @@
           id="lname"
           name="lname"
           placeholder="Enter your lname"
-          required
+          required pattern="[a-zA-Z][a-zA-Z ]+" 
           #lname="ngModel"
         >
       </div>
       <div [hidden]="!lname.pristine" class="alert-danger">
         lastname is required
       </div>
+      <div *ngIf="lname.invalid &&(lname.dirty|| lname.touched)" class="alert">
+        <div style="color: rgb(241, 101, 101);" *ngIf="lname.errors?.['required']"> <b>lname is required</b></div>
+      <div style="color: rgb(241, 102, 102);" *ngIf="lname.errors?.['pattern']"><b>Enter the valid lname</b></div>
+    </div>
       <div class="form-control3">
         <label for="email" style="color:blue">Email</label>
         <input
@@ -84,6 +99,9 @@
           required pattern="^((\\+91-?)|0)?[0-9]{10}$"
           #phone="ngModel"
         />
+      </div>
+      <div [hidden]="!phone.pristine" class="alert-danger">
+        phone is required
       </div>
       <div *ngIf="phone.invalid &&(phone.dirty|| phone.touched)" class="alert">
         <div style="color: rgb(228, 68, 68);" *ngIf="phone.errors?.['required']"> <b>Mobile number is required</b></div>

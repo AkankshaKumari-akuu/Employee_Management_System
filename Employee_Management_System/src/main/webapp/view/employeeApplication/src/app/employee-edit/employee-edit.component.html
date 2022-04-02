@@ -1,6 +1,14 @@
 <div class="html">
   <div class="card-body">
-    <form (ngSubmit)="onSubmit()" #EmployeeRegistration="ngForm">
+    <div style="color: white" align="right">
+      <h4 align="justify" style="color: white">
+        <br />
+        <a style="color: green" href="/employeehome"><button class="btn-float-left">Home</button> </a>
+        <a style="color: green" href="/userLogin"><button class="btn-float-right">Logout</button> </a>
+      </h4>
+    </div>
+     
+    <form (ngSubmit)="onSubmit()" #EmployeeRegistration="ngForm" >
       <label for="employeeid">Employee Id</label>
       <input
         type="number"
@@ -13,7 +21,7 @@
         #userid="ngModel"
       />
 
-      <div class="form-group">
+      <div class="form-group" >
         <label for="employeename">Employee name</label>
         <input
           type="text"
@@ -26,7 +34,7 @@
           #username="ngModel"
         />
       </div>
-      <div class="form-group">
+      <div class="form-group1">
         <label for="doj">date Of Joining</label>
         <input
           type="text"
@@ -40,7 +48,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group2">
         <label for="basicpay">Basicpay</label>
         <input
           type="text"
@@ -56,6 +64,7 @@
 
       <button
         type="submit"
+        
         [disabled]="!EmployeeRegistration.form.valid"
         class="btn btn-info"
       >
@@ -64,3 +73,4 @@
     </form>
   </div>
 </div>
+ 

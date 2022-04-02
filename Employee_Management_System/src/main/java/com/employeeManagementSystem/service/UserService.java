@@ -27,5 +27,7 @@ public class UserService {
 	public ArrayList<User> getAllUser() {
 		return (ArrayList<User>) usempl.findAll();
 	}
+	
+	
 
 }

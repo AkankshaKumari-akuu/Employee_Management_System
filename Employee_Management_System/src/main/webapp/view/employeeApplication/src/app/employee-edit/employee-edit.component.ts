@@ -11,15 +11,20 @@ import { Employee } from '../model/Employee';
 })
 export class EmployeeEditComponent implements OnInit {
    employee : Employee;
+   employeearr:Employee[]=[];
   constructor(private route:ActivatedRoute,private router: Router,private employeeService:EmployeeService) {
     this.employee= new Employee();
    }
-    ngOnInit(): void {
-        throw new Error('Method not implemented.');
-    }
+   ngOnInit(): void {
+    this.route.params.subscribe((parameters) => {
+    this.employeeService.findByIdforEdit(parameters['id']).subscribe(x =>{ this.employee=x});
+  });
 
-   onSubmit() {
-    this.employeeService.editEmployee(this.employee).subscribe(data => {this.gotoHomePage()});
+}
+  
+onSubmit() {
+    this.employeeService.editEmployee(this.employee).subscribe(x => {this.gotoHomePage()});
+    alert('Employee successfully update');
    }
    searchtype: string='';
    gotoHomePage(){

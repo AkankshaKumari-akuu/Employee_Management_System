@@ -39,32 +39,6 @@
           </form>
         </div>
         <br>
-        <!--  Delete Employee-->
-
-        <input
-           class="anchor2"
-          type="button"
-          value="Delete Employee by Id"
-          (click)="employeedeletebyid()"
-        />
-        
-        <div *ngIf="employeeiddeletestatus" id="au">
-          <form #form3="ngForm" (ngSubmit)="deleteEmpById(form3)">
-            <label for="id"></label>
-
-            <input
-              name="id"
-              required
-              [(ngModel)]="employee.id"
-              type="number"
-              id="id "
-            />
-
-            <input style="margin-left: 10px;" class="button" type="Submit" value="Delete" />
-          </form>
-        </div>
-        <br>
-        <div *ngIf="showstatus" style="color: rgb(230, 70, 70);">Employee id {{ id }} Been Successfully Deleted</div>
         
         <br>
         <!-- Add Employee-->
@@ -74,27 +48,13 @@
 
         <br>
         <br>
-        <!-- Edit Employee By Id -->
-        <input
-          class="anchor2"
-          type="button"
-          value="Edit Employee by Id"
-          (click)="employeeedit()"
-        />  
-        <div *ngIf="employeeEditstatus" id="au">
-          <form #form4="ngForm" (ngSubmit)="editEmpById(form4)">
-            <label for="id"></label>
-
-            <input
-              name="id"
-              required
-              [(ngModel)]="employee.id"
-              type="number"
-              id="id "
-            />
-
-            <input style="margin-left: 10px;" class="button" type="Submit" value="Edit" />
-          </form>
-        </div>
+         
+         
+        <br>
+        <br>
+        <a routerLink="/userRegistration">
+          <button class="anchor3">Create New Account</button></a>
+        
 </div>
+
 </div>

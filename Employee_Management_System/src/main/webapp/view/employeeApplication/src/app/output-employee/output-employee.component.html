@@ -6,8 +6,7 @@
       <a style="color: green" href="/userLogin"><button class="btn-float-right">Logout</button> </a>
     </h4>
   </div>
-
-  <div align="center" *ngIf="showOutput">
+<div align="center">
     <h1>Employee List</h1>
 
     <table border="1">
@@ -21,11 +20,12 @@
         <th>Gross</th>
         <th>Tax</th>
         <th>Net</th>
+        <th>Modify Employee</th>
         <tr></tr>
       </thead>
 
       <tbody>
-        <tr *ngFor="let employee of Employees">
+        <tr *ngFor="let employee of employeearr;let i=index">
           <td>{{ employee.id }}</td>
           <td>{{ employee.name }}</td>
           <td>{{ employee.dateOfJoining }}</td>
@@ -35,78 +35,23 @@
           <td>{{ employee.gross }}</td>
           <td>{{ employee.tax }}</td>
           <td>{{ employee.net }}</td>
+          <td>
+             
+            <input style="margin-left: 10px;" (click)="deleteEmpById(employee)" class="button" type="Submit" value="Delete"  />
+             
+            <input class="anchor1" type="Submit"    value="Edit" (click)="editEmpById(employee)"  />
+           
+          
+             
+             
+    
+            </td>
         </tr>
       </tbody>
     </table>
   </div>
+   
   <br /><br /><br />
 
-  <div *ngIf="showEdit">
-    <div class="html">
-      <div class="card-body">
-        <form (ngSubmit)="onSubmit()" #EmployeeRegistration="ngForm">
-          <label for="employeeid">Employee Id</label>
-          <input
-            type="number"
-            [(ngModel)]="employee.id"
-            class="form-control"
-            id="employeeid"
-            name="employeeid"
-            placeholder="Enter Id to Update"
-            required
-            #userid="ngModel"
-          />
 
-          <div class="form-group">
-            <label for="employeename">Employee name</label>
-            <input
-              type="text"
-              [(ngModel)]="employee.name"
-              class="form-control"
-              id="employeename"
-              name="employeename"
-              placeholder="Enter your name"
-              required
-              #username="ngModel"
-            />
-          </div>
-          <div class="form-group">
-            <label for="doj">date Of Joining</label>
-            <input
-              type="text"
-              [(ngModel)]="employee.dateOfJoining"
-              class="form-control1"
-              id="doj"
-              name="doj"
-              placeholder="date of joining"
-              required
-              #doj="ngModel"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="basicpay">Basicpay</label>
-            <input
-              type="text"
-              [(ngModel)]="employee.basicpay"
-              class="form-control2"
-              id="basicpay"
-              name="basicpay"
-              placeholder="Enter your basicpay"
-              required
-              #basicpay="ngModel"
-            />
-          </div>
-
-          <button
-            type="submit"
-            [disabled]="!EmployeeRegistration.form.valid"
-            class="btn btn-info"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
 </div>

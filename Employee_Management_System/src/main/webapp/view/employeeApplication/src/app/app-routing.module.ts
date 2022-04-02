@@ -17,7 +17,7 @@ const routes: Routes = [
 {path:'employeeById/:id/:searchtype', component: OutputAllEmpComponent},
 {path:'deleteById/:id/:searchtype', component: EmployeeHomeComponent},
 {path:'employeeRegistration', component: EmployeeRegistrationComponent},
-{path:'editById', component: EmployeeEditComponent},
+{path:'editById/:id', component: EmployeeEditComponent},
 {path:'editemployeeById/:id/:searchtype', component: OutputAllEmpComponent}
 
 ];

@@ -43,3 +43,19 @@
   background-color: aliceblue;
   width: fit-content;
 }
+.anchor3 {
+  margin: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid #b0f0f2;
+  border: radius 5px;
+  color: black;
+  padding: 10px;
+  padding-top: 10px;
+  text-decoration: none;
+}
+
+.anchor3:hover {
+  background-color: #42f4ce;
+  color: red;
+}

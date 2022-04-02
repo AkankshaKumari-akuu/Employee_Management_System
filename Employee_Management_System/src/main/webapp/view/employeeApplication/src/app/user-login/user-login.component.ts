@@ -5,7 +5,6 @@ import { User } from '../model/User';
 import { EmployeeService } from '../service/employee.service';
 import * as CryptoJS from 'crypto-js'; 
 
-
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
