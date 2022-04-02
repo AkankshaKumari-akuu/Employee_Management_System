@@ -18,7 +18,7 @@
           id="employeename"
           name="employeename"
           placeholder="Enter your name"
-          required 
+          required pattern="[a-zA-Z][a-zA-Z ]+"
           #userid="ngModel"
         />
       </div>
@@ -45,7 +45,7 @@
           id="basicpay"
           name="basicpay"
           placeholder="Enter your basicpay"
-          required
+          required pattern="^((\\+91-?)|0)?[0-9]{10}$"
           #basicpay="ngModel"
         />
       </div>
