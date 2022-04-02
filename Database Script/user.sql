@@ -16,4 +16,5 @@ VALUES('100','Akanksha','Choudhary','Ac@gmail.com',878956,'U2FsdGVkX1/lHopzF3zhf
 INSERT INTO "user"(userid,first,last,email,phone,password,address)
 VALUES('101','Akku','Choudhary','Ac@gmail.com',878956,'UU2FsdGVkX1/WVNbFe3tyj9W5l5VP1AMzfxY+6YkiwE0=','abc');
 
+
 commit;
