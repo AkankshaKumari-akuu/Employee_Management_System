@@ -4,3 +4,5 @@ This is the second session on 13th October
 This is the next session
 
 This is the Session Details - GIT Commands
+
+This is the line added by Developer 2
