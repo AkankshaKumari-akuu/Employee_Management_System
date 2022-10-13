@@ -29,3 +29,4 @@ insert into Employee(ID,NAME,DATE_OF_JOINING,BASIC_PAY,DA,HRA,GROSS,TAX,NET) val
 
 
 commit;
+commit;
